@@ -1,3 +1,15 @@
 html {
-    background: radial-gradient(ellipse, #e66465, transparent);
+    height: 100%;
+    background: radial-gradient(ellipse, #e66465, #ccc);
+}
+
+#container {
+    height: 300px;
+    width: 400px;
+    background-color: #9dd2ea;
+    margin: 100px 100px;
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 4px 4px #F016DE;
+    
 }
