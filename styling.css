@@ -4,12 +4,167 @@ html {
 }
 
 #container {
-    height: 300px;
+    height: 400px;
     width: 400px;
     background-color: #9dd2ea;
     margin: 100px 100px;
     padding: 20px 40px;
     border-radius: 20px;
     box-shadow: 4px 4px #F016DE;
+    position: relative;
+}
+
+#score {
+    background-color: yellow;
+    color: palevioletred;
+/*
+    height: 50px;
+    width: 80px;
+*/
+    border-radius: 10px;
+    box-shadow: 0px 2px black;
+    position: absolute;
+    right: 20px;
+    padding: 11px;
     
+}
+
+#correct{
+    position: absolute;
+    left: 200px;
+    background-color: blueviolet;
+    color: white;
+    padding: 11px;
+    display: none;
+    
+}
+
+#wrong{
+    position: absolute;
+    left: 190px;
+    background-color: chartreuse; 
+    color: white;
+    padding: 11px;
+    display: none;
+}
+
+#question{
+    width: 300px;
+    height: 150px;
+    margin: 50px auto 10px auto;
+    background-color: brown;
+    font-size: 100px;
+    text-align: center;
+    font-family:Impact, Charcoal, sans-serif;
+    box-shadow: 0px 2px black;
+}
+
+#instruction{
+    width: 300px;
+    height: 50px;
+    background-color: blueviolet;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 3;
+    box-shadow: 0px 2px black;
+}
+
+#choice{
+    width: 300px;
+    height: 80px;
+    margin: 5px auto 10px auto;
+/*    background-color: black;*/
+    
+}
+
+.box{
+    width: 60px;
+    height: 60px;
+    float:left;
+/*    margin: 10px 10px 10px 10px;*/
+    background-color: aliceblue;
+    margin-right: 20px;
+    box-shadow: 0px 2px rgba(0,0,100, 10);
+    text-align: center;
+    line-height: 3.5;
+    position: relative;/* for the postion of the button*/
+/*
+    -webkit-transition: all 2s;
+    -moz-transition: all 2s;
+    -o-transition: all 2s;
+    -ms-transition: all 2s;
+*/
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.box:hover{
+    background-color: darkgreen;
+    color: white;
+    box-shadow: 0px 2px black;   
+}
+
+.box:active{
+    box-shadow: 0px 0px black;
+    top: 3px;
+}
+
+#box4{
+    margin-right: 0;
+}
+
+#footer{
+    width: 300px;
+    height: 50px;
+    margin: 10px 150px;
+}
+
+.foot {
+    line-height: 2.5;
+    text-align: center;
+    float: left;
+    box-shadow: 0px 2px rgba(0,0,0, 10);
+    border-radius: 3px;
+}
+#reset {
+    width: 100px;
+    height: 40px;
+    background-color: deeppink;
+    margin-right: 25px;
+    position: relative;
+    cursor:pointer;
+}
+
+#reset:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+#reset:active {
+    box-shadow: 0px 0px black;
+    top: 3px;
+}
+
+#timing {
+    width: 160px;
+    height: 40px;
+    background-color: chartreuse;
+    box-shadow: 0px 2px rgba(0,0,100, 10);
+/*    visibility: hidden;*/
+    display: none;
+}
+
+#gameover {
+    height: 150px;
+    width: 400px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 1.5;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+    background: linear-gradient(#f7d86a, #f75d04);
+    display: none;
 }
