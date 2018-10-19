@@ -7,8 +7,8 @@ html {
     height: 400px;
     width: 400px;
     background-color: #9dd2ea;
-    margin: 100px 100px;
-    padding: 20px 40px;
+    margin: 100px auto;
+    padding: 20px ;
     border-radius: 20px;
     box-shadow: 4px 4px #F016DE;
     position: relative;
