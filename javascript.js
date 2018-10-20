@@ -4,7 +4,9 @@ var timeRemaining;
 var ans;
 var question ;
 
-// If we click on the reset/start button
+
+
+//If we click on the reset/start button
 document.getElementById("reset").onclick = 
     function() {
     // If we are playing   
@@ -31,6 +33,13 @@ document.getElementById("reset").onclick =
     } 
 }
 
+
+//document.getElementById("reset").onclick = 
+//    // Go back the first stage
+//    function() {
+//        location.reload(); // Reload the page
+//    }
+
 function startCountdown() {
     action = setInterval(function() {
         timeRemaining -= 1;
@@ -53,8 +62,8 @@ function stopCounting() {
 function gameOver() {
     playing = false;
     document.getElementById("reset").innerHTML = "Start Game";
-    document.getElementById("timing").style.display = "none";
-    document.getElementById("gameover").style.display = "block";
+    hide("timing");
+    appear("gameover");
     document.getElementById("result").innerHTML = score;
 }
 
@@ -109,18 +118,18 @@ for(i=1; i<5; i++) {
                 document.getElementById("scorevalue").innerHTML = score;
                 
                 // Show "Correct" box for 1 sec
-                document.getElementById("correct").style.display = "block"; // Show "Correct" box for 1 sec
+               appear("correct");// Show "Correct" box for 1 sec
                 setTimeout( function(){
-                    document.getElementById("correct").style.display = "none"; 
+                    hide("correct");
                 }, 1000);
                 
             } else {
                 score -= 2;
                 document.getElementById("scorevalue").innerHTML = score;
                 
-                document.getElementById("wrong").style.display = "block";
+                appear("wrong");
                 setTimeout( function(){
-                    document.getElementById("wrong").style.display = "none"; 
+                    hide("wrong");   
                 }, 1000);
             }
             generateQA(); // Generate new question and answer
@@ -128,4 +137,11 @@ for(i=1; i<5; i++) {
     }
 }
 
+function hide(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+function appear(id) {
+    document.getElementById(id).style.display = "block";
+}
 

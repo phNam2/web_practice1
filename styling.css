@@ -8,10 +8,11 @@ html {
     width: 600px;
     height: 500px;
     background-color: #9dd2ea;
-    margin: 90px auto;
+    margin: 100px auto;
+    padding: 20px ;
     border-radius: 30px;
     position: relative;
-    display: block;
+    display: none;
 }
 
 #waste {
@@ -81,6 +82,7 @@ html {
     top: 1px;
 }
 
+/*///////////////////////////////////////////////////*/
 /*Choose the difficulty of the game mode*/
 #second {
     display: none;
@@ -128,17 +130,19 @@ html {
     top: 1px;
 }
 
+
+/*///////////////////////////////////////////////////*/
 /*The content of the game*/
 #container2 {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 600px;
     background-color: #9dd2ea;
     margin: 100px auto;
     padding: 20px ;
     border-radius: 20px;
     box-shadow: 4px 4px #F016DE;
     position: relative;
-    display: none;
+/*    display: none;*/
 }
 
 #score {
@@ -158,7 +162,7 @@ html {
 
 #correct{
     position: absolute;
-    left: 200px;
+    left: 10px;
     background-color: blueviolet;
     color: white;
     padding: 11px;
@@ -168,7 +172,7 @@ html {
 
 #wrong{
     position: absolute;
-    left: 190px;
+    left: 10px;
     background-color: chartreuse; 
     color: white;
     padding: 11px;
@@ -243,7 +247,7 @@ html {
 #footer{
     width: 300px;
     height: 50px;
-    margin: 10px 150px;
+/*    margin: 10px 250px;*/
 }
 
 .foot {
@@ -257,7 +261,7 @@ html {
     width: 100px;
     height: 40px;
     background-color: deeppink;
-    margin-right: 25px;
+    margin-left: 250px;
     position: relative;
     cursor:pointer;
 }
@@ -273,12 +277,13 @@ html {
 }
 
 #timing {
-    width: 160px;
+    width: 170px;
     height: 40px;
+/*    margin-left: 5px;*/
     background-color: chartreuse;
     box-shadow: 0px 2px rgba(0,0,100, 10);
 /*    visibility: hidden;*/
-    display: none;
+/*    display: none;*/
 
 }
 
@@ -292,6 +297,7 @@ html {
     text-transform: uppercase;
     position: absolute;
     top: 100px;
+    left: 115px;
     z-index: 2;
     background: linear-gradient(#f7d86a, #f75d04);
     display: none;
