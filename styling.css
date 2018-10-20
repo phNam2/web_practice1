@@ -7,12 +7,12 @@ html {
 #container1 {
     width: 600px;
     height: 500px;
-    background-color: #9dd2ea;
+    background: linear-gradient( #0a88b2, #9dd2ea, #0a88b2, #9dd2ea);
     margin: 100px auto;
     padding: 20px ;
     border-radius: 30px;
     position: relative;
-    display: none;
+    display: block;
 }
 
 #waste {
@@ -49,11 +49,12 @@ html {
 }
 
 #title {
+    font-style: italic;
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 100;
     color: #407c04;
-    margin-bottom: 30px;
+/*    margin-bottom: 30px;*/
     display: block;
 }
 
@@ -95,6 +96,7 @@ html {
 }
 
 #difficult {
+    font-style: italic;
     text-align: center;
     font-size: 25px;
 }
@@ -140,9 +142,9 @@ html {
     margin: 100px auto;
     padding: 20px ;
     border-radius: 20px;
-    box-shadow: 4px 4px #F016DE;
+/*    box-shadow: 4px 4px #F016DE;*/
     position: relative;
-/*    display: none;*/
+    display: none;
 }
 
 #score {
@@ -247,7 +249,7 @@ html {
 #footer{
     width: 300px;
     height: 50px;
-/*    margin: 10px 250px;*/
+    margin: 10px 10px 0px 250px;;
 }
 
 .foot {
@@ -261,7 +263,6 @@ html {
     width: 100px;
     height: 40px;
     background-color: deeppink;
-    margin-left: 250px;
     position: relative;
     cursor:pointer;
 }
@@ -279,11 +280,11 @@ html {
 #timing {
     width: 170px;
     height: 40px;
-/*    margin-left: 5px;*/
+    margin-left: 30px;
     background-color: chartreuse;
     box-shadow: 0px 2px rgba(0,0,100, 10);
 /*    visibility: hidden;*/
-/*    display: none;*/
+    display: none;
 
 }
 

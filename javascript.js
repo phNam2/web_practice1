@@ -6,39 +6,101 @@ var question ;
 
 
 
-//If we click on the reset/start button
-document.getElementById("reset").onclick = 
-    function() {
-    // If we are playing   
-    if (playing == true) {  
-        location.reload(); // Reload the page
-    } else {
-        document.getElementById("gameover").style.display = "none";
-        // If we are not playing
-        playing = true; // changing mode
-        score = 0; // set score to 0
-        document.getElementById("scorevalue").innerHTML = score;
-        // Show countdown box
-        document.getElementById("timing").style.display = "block";
-        // change button to Reset
-        document.getElementById("reset").innerHTML = "Reset Game";
-        
-//        // Reduce time by 1 sec
-//        timeRemaining = 11;
-        startCountdown();
-        
-        // generate Q&A
-        question = 0;
-        generateQA();
-    } 
+////If we click on the reset/start button
+//document.getElementById("reset").onclick = 
+//    function() {
+//    // If we are playing   
+//    if (playing == true) {  
+//        location.reload(); // Reload the page
+//    } else {
+//        document.getElementById("gameover").style.display = "none";
+//        // If we are not playing
+//        playing = true; // changing mode
+//        score = 0; // set score to 0
+//        document.getElementById("scorevalue").innerHTML = score;
+//        // Show countdown box
+//        document.getElementById("timing").style.display = "block";
+//        // change button to Reset
+//        document.getElementById("reset").innerHTML = "Reset Game";
+//        
+////        // Reduce time by 1 sec
+////        timeRemaining = 11;
+//        startCountdown();
+//        
+//        // generate Q&A
+//        question = 0;
+//        generateQA();
+//    } 
+//}
+
+
+// The type of game button in the first page
+document.getElementById("normal").onclick = function() {
+    hide("title");
+    hide("normal");
+    hide("fast");
+    hide("one");
+    show("second");
+}
+
+document.getElementById("fast").onclick = function() {
+    hide("title");
+    hide("normal");
+    hide("fast");
+    hide("one");
+    show("second");
+}
+
+document.getElementById("one").onclick = function() {
+    hide("title");
+    hide("normal");
+    hide("fast");
+    hide("one");
+    show("second");
+}
+
+// The difficulity button in the second page
+document.getElementById("21").onclick = function() {
+    hide("container1");
+    show("container2");
+}
+
+document.getElementById("22").onclick = function() {
+    hide("container1");
+    show("container2");
+}
+
+document.getElementById("31").onclick = function() {
+    hide("container1");
+    show("container2");
+}
+
+document.getElementById("32").onclick = function() {
+    hide("container1");
+    show("container2");
+}
+
+document.getElementById("2decimal").onclick = function() {
+    hide("container1");
+    show("container2");
+}
+
+document.getElementById("3decimal").onclick = function() {
+    hide("container1");
+    show("container2");
 }
 
 
-//document.getElementById("reset").onclick = 
-//    // Go back the first stage
-//    function() {
-//        location.reload(); // Reload the page
-//    }
+// The reset button that go back to the first page
+document.getElementById("reset").onclick = function() {
+    // Reload the page
+    location.reload();
+}
+
+
+
+
+
 
 function startCountdown() {
     action = setInterval(function() {
@@ -141,7 +203,7 @@ function hide(id) {
     document.getElementById(id).style.display = "none";
 }
 
-function appear(id) {
+function show(id) {
     document.getElementById(id).style.display = "block";
 }
 
