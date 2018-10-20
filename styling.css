@@ -3,7 +3,85 @@ html {
     background: radial-gradient(ellipse, #e66465, #ccc);
 }
 
-#container {
+/*The introduction of the game*/
+#container1 {
+    width: 600px;
+    height: 500px;
+    background-color: #9dd2ea;
+    margin: 90px auto;
+    border-radius: 30px;
+    position: relative;
+    display: block;
+}
+
+#waste {
+    width: 600px;
+    height: 10px;
+/*    margin-bottom: 10px;*/
+    display: block;
+}
+
+#language {
+    width: 40px;
+    height: 40px;
+    background-color: #d0e81b;
+    text-align: center;
+    line-height: 2.6;
+    right: 20px;
+    position: relative;
+    border-radius: 40px;
+    margin-left: 550px;
+    box-shadow: 0px 2px #64700b;
+    cursor: pointer;
+    display: block;
+}
+
+#language:hover{
+    background-color: #9aad0a;
+    color: white;
+    box-shadow: 0px 2px #404704;   
+}
+
+#language:active{
+    box-shadow: 0px 0px black;
+    top: 1px;
+}
+
+#title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 100;
+    color: #r407c04;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.mode {
+    width: 150px;
+    height: 50px;
+    background-color: #d8480f;
+    text-align: center;
+    line-height: 3;
+    margin:0px 230px 20px;
+    box-shadow: 0px 3px #752709;
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+
+.mode:hover{
+    background-color: #9aad0a;
+    color: white;
+    box-shadow: 0px 2px #404704;   
+}
+
+.mode:active{
+    box-shadow: 0px 0px black;
+    top: 1px;
+}
+
+/*The content of the game*/
+#container2 {
     height: 400px;
     width: 400px;
     background-color: #9dd2ea;
@@ -12,6 +90,7 @@ html {
     border-radius: 20px;
     box-shadow: 4px 4px #F016DE;
     position: relative;
+    display: none;
 }
 
 #score {
@@ -152,6 +231,7 @@ html {
     box-shadow: 0px 2px rgba(0,0,100, 10);
 /*    visibility: hidden;*/
     display: none;
+
 }
 
 #gameover {
