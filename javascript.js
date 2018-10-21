@@ -1,4 +1,4 @@
-var playing = false;
+var action;
 var score;
 var timeRemaining;
 var ans;
@@ -144,7 +144,7 @@ function gameOver() {
 
 // Q&A
 function generateQA() {
-    if (question < 0) {
+    if (question < 50) {
         
         question++;
         // Set the time back
@@ -152,8 +152,10 @@ function generateQA() {
         startCountdown();
     
         // generate question
-        var x = 1+Math.round(9*Math.random());
-        var y = 1+Math.round(9*Math.random());
+//        var x = 1+Math.round(9*Math.random());
+//        var y = 1+Math.round(9*Math.random());
+        var x = Math.floor(Math.random() * 10);
+        var y = Math.floor(Math.random() * 10);
         ans = x*y;
         document.getElementById("question").innerHTML = x + "x" + y;
     
@@ -188,9 +190,9 @@ function startCountdown() {
         document.getElementById("left").innerHTML = timeRemaining;
         
         // Game over
-        if (timeRemaining == 0) {
+        if (timeRemaining <= 0) {
             stopCounting();
-            gameOver();
+            generateQA(); // Generate new question and answer
         }
     }, 1000);
 }
@@ -204,30 +206,28 @@ function stopCounting() {
 for(i=1; i<5; i++) {
     document.getElementById("box"+i).onclick =
     function() {
-        // Are we playing?
-        if (playing == true) {
             // Yes, then is the answer correct?
-            var choice = this.innerHTML;
-            if (choice == ans) {
-                score++; // Increase the score by 1
-                document.getElementById("scorevalue").innerHTML = score;
+        var choice = this.innerHTML;
+        if (choice == ans) {
+            score++; // Increase the score by 1
+            document.getElementById("scorevalue").innerHTML = score;
                 
-                // Show "Correct" box for 1 sec
-               appear("correct");// Show "Correct" box for 1 sec
-                setTimeout( function(){
-                    hide("correct");
-                }, 1000);
-                
-            } else {
-                score -= 2;
-                document.getElementById("scorevalue").innerHTML = score;
-                
-                appear("wrong");
-                setTimeout( function(){
-                    hide("wrong");   
-                }, 1000);
-            }
+            // Show "Correct" box for 1 sec
+            show("correct");// Show "Correct" box for 1 sec
+            setTimeout( function(){
+                hide("correct");
+            }, 1000);
+            stopCounting();
             generateQA(); // Generate new question and answer
+                
+        } else {
+            score -= 2;
+             document.getElementById("scorevalue").innerHTML = score;
+                
+            show("wrong");
+            setTimeout( function(){
+                hide("wrong");   
+            }, 1000);
         }
     }
 }
