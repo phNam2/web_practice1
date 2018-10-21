@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    background: radial-gradient(ellipse, #e66465, #ccc);
+    background: radial-gradient(ellipse, #332c2c, #1e1414);
 }
 
 /*The introduction of the game*/
@@ -49,11 +49,15 @@ html {
 }
 
 #title {
+    background: linear-gradient( #098961, #1edb9f, #4eb283);
+    margin-left: 50px;
+    width: 500px;
+    border-radius: 30px;
     font-style: italic;
     text-align: center;
     font-size: 30px;
     font-weight: 100;
-    color: #407c04;
+    color: white;
 /*    margin-bottom: 30px;*/
     display: block;
 }
