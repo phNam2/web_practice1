@@ -4,6 +4,9 @@ var timeRemaining;
 var ans;
 var question ;
 
+var mode;
+var numbers;
+var digits;
 
 
 ////If we click on the reset/start button
@@ -41,6 +44,7 @@ document.getElementById("normal").onclick = function() {
     hide("fast");
     hide("one");
     show("second");
+    mode = 1;
 }
 
 document.getElementById("fast").onclick = function() {
@@ -49,6 +53,7 @@ document.getElementById("fast").onclick = function() {
     hide("fast");
     hide("one");
     show("second");
+    mode = 2;
 }
 
 document.getElementById("one").onclick = function() {
@@ -57,37 +62,52 @@ document.getElementById("one").onclick = function() {
     hide("fast");
     hide("one");
     show("second");
+    mode = 3;
 }
 
 // The difficulity button in the second page
 document.getElementById("21").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 2;
+    digits = 1;
+    
+    gameStart();
 }
 
 document.getElementById("22").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 2;
+    digits = 2;
 }
 
 document.getElementById("31").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 3;
+    digits = 1;
 }
 
 document.getElementById("32").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 3;
+    digits = 2;
 }
 
 document.getElementById("2decimal").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 2;
+    digits = 0;
 }
 
 document.getElementById("3decimal").onclick = function() {
     hide("container1");
     show("container2");
+    numbers = 3;
+    digits = 0;
 }
 
 
@@ -98,8 +118,25 @@ document.getElementById("reset").onclick = function() {
 }
 
 
-
-
+// Game start
+function gameStart() {     
+    hide("gameover"); 
+    playing = true; // changing mode
+    score = 0; // set score to 0
+    
+    document.getElementById("scorevalue").innerHTML = score;
+        
+    // Show countdown box
+    show("timing");
+        
+    // Reduce time by 1 sec
+    // timeRemaining = 11;
+    startCountdown();
+        
+    // generate Q&A
+    question = 0;
+    generateQA();
+}
 
 
 function startCountdown() {
@@ -125,7 +162,7 @@ function gameOver() {
     playing = false;
     document.getElementById("reset").innerHTML = "Start Game";
     hide("timing");
-    appear("gameover");
+    show("gameover");
     document.getElementById("result").innerHTML = score;
 }
 
