@@ -104,6 +104,14 @@ function gameStart() {
     document.getElementById("scorevalue").innerHTML = score;
         
     // Show countdown box
+    if (mode==3 && digits==1 && numbers==2) {
+        document.getElementById("left").innerHTML = 5;
+    }
+    else if (mode==3 && digits==1 && numbers==3) {
+        document.getElementById("left").innerHTML = 7;
+    } else {
+        document.getElementById("left").innerHTML = 10;
+    }
     show("timing");
         
     // generate Q&A
@@ -126,7 +134,15 @@ function generateQA() {
         
         question++;
         // Set the time back
-        timeRemaining = 11;
+        if (mode==3 && digits==1 && numbers==2) {
+            timeRemaining = 5;
+        }
+        else if (mode==3 && digits==1 && numbers==3) {
+            timeRemaining = 7;
+        } else {
+            timeRemaining = 10;
+        }
+//        timeRemaining = 10;
         startCountdown();
     
         // generate question
@@ -219,9 +235,14 @@ function startCountdown() {
         
         // Game over
         if (timeRemaining <= 0) {
-            stopCounting();
             score -= 2;
-            generateQA(); // Generate new question and answer
+            stopCounting();
+            
+            if(mode==1) {
+               generateQA(); // Generate new question and answer
+            } else if (mode==3) {
+                gameOver();
+            }
         }
     }, 1000);
 }
@@ -258,6 +279,10 @@ for(i=1; i<5; i++) {
             setTimeout( function(){
                 hide("wrong");   
             }, 1000);
+            if (mode==3) {
+                stopCounting();
+                gameOver();
+            }
         }
     }
 }
