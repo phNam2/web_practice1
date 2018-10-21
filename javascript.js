@@ -9,34 +9,6 @@ var numbers;
 var digits;
 
 
-////If we click on the reset/start button
-//document.getElementById("reset").onclick = 
-//    function() {
-//    // If we are playing   
-//    if (playing == true) {  
-//        location.reload(); // Reload the page
-//    } else {
-//        document.getElementById("gameover").style.display = "none";
-//        // If we are not playing
-//        playing = true; // changing mode
-//        score = 0; // set score to 0
-//        document.getElementById("scorevalue").innerHTML = score;
-//        // Show countdown box
-//        document.getElementById("timing").style.display = "block";
-//        // change button to Reset
-//        document.getElementById("reset").innerHTML = "Reset Game";
-//        
-////        // Reduce time by 1 sec
-////        timeRemaining = 11;
-//        startCountdown();
-//        
-//        // generate Q&A
-//        question = 0;
-//        generateQA();
-//    } 
-//}
-
-
 // The type of game button in the first page
 document.getElementById("normal").onclick = function() {
     hide("title");
@@ -80,6 +52,8 @@ document.getElementById("22").onclick = function() {
     show("container2");
     numbers = 2;
     digits = 2;
+    
+    gameStart();
 }
 
 document.getElementById("31").onclick = function() {
@@ -87,6 +61,8 @@ document.getElementById("31").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 1;
+    
+    gameStart();
 }
 
 document.getElementById("32").onclick = function() {
@@ -94,6 +70,8 @@ document.getElementById("32").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 2;
+    
+    gameStart();
 }
 
 document.getElementById("2decimal").onclick = function() {
@@ -154,10 +132,36 @@ function generateQA() {
         // generate question
 //        var x = 1+Math.round(9*Math.random());
 //        var y = 1+Math.round(9*Math.random());
-        var x = Math.floor(Math.random() * 10);
-        var y = Math.floor(Math.random() * 10);
-        ans = x*y;
-        document.getElementById("question").innerHTML = x + "x" + y;
+        if (numbers == 2) {
+            if (digits == 1) {
+                var x = Math.floor(Math.random() * 10);
+                var y = Math.floor(Math.random() * 10);
+            } else if (digits == 2){
+                var x = Math.floor(Math.random() * 90 + 10);
+                var y = Math.floor(Math.random() * 90 +10);
+            } else if (digits == 0){
+                
+                
+            }
+            ans = x*y;
+            document.getElementById("question").innerHTML = x + "x" + y;
+        } 
+        if (numbers == 3) {
+            if (digits == 1) {
+                var x = Math.floor(Math.random() * 10);
+                var y = Math.floor(Math.random() * 10);
+                var k = Math.floor(Math.random() * 10);
+            } else if (digits == 2){
+                var x = Math.floor(Math.random() * 90 + 10);
+                var y = Math.floor(Math.random() * 90 + 10);
+                var k = Math.floor(Math.random() * 90 + 10);
+            } else if (digits == 0){
+                
+                
+            }
+            ans = x*y*k;
+            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+        }
     
         // generate answers
         var correctPos = 1+Math.round(3*Math.random());
@@ -168,12 +172,22 @@ function generateQA() {
                 document.getElementById("box"+z).innerHTML = ans;
             } else {
                 // wrong answers
-                var wrongans = 1+Math.round(100*Math.random());
-                // while (wrongans == ans) {
-                while (answers.indexOf(wrongans) > -1 ) {
-                    wrongans = 1+Math.round(100*Math.random());
+                if (digits == 1) {
+                    var wrongans = Math.floor(Math.random() * 90 + 10);
+                    // while (wrongans == ans) {
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = Math.floor(Math.random() * 90 + 10);
                 
+                    }
+                } else if (digits == 2){
+                    var wrongans = Math.floor(Math.random() * 10000)+100;
+                    // while (wrongans == ans) {
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = Math.floor(Math.random() * 10000)+100;
+                
+                    }
                 }
+            
                 document.getElementById("box"+z).innerHTML = wrongans;
                 answers.push(wrongans);
             }
@@ -192,6 +206,7 @@ function startCountdown() {
         // Game over
         if (timeRemaining <= 0) {
             stopCounting();
+            score -=;
             generateQA(); // Generate new question and answer
         }
     }, 1000);
@@ -221,7 +236,7 @@ for(i=1; i<5; i++) {
             generateQA(); // Generate new question and answer
                 
         } else {
-            score -= 2;
+            score --;
              document.getElementById("scorevalue").innerHTML = score;
                 
             show("wrong");

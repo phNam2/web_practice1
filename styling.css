@@ -186,8 +186,9 @@ html {
     height: 150px;
     margin: 50px auto 10px auto;
     background-color: brown;
-    font-size: 100px;
+    font-size: 70px;
     text-align: center;
+    line-height: 2;
     font-family:Impact, Charcoal, sans-serif;
     box-shadow: 0px 2px black;
 }
