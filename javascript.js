@@ -172,7 +172,21 @@ function generateQA() {
                 document.getElementById("box"+z).innerHTML = ans;
             } else {
                 // wrong answers
-                if (digits == 1) {
+                if (numbers == 3 && digits ==2) {
+                    var wrongans = Math.floor(Math.random() * 1000000 + 1000);
+                    // while (wrongans == ans) {
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = Math.floor(Math.random() * 1000000 + 1000);
+                    }
+                }
+                else if (numbers == 3 && digits ==1) {
+                    var wrongans = Math.floor(Math.random() * 1000 + 0);
+                    // while (wrongans == ans) {
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = Math.floor(Math.random() * 1000 + 0);
+                    }
+                }
+                else if (digits == 1) {
                     var wrongans = Math.floor(Math.random() * 90 + 10);
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
@@ -206,7 +220,7 @@ function startCountdown() {
         // Game over
         if (timeRemaining <= 0) {
             stopCounting();
-            score -=;
+            score -= 2;
             generateQA(); // Generate new question and answer
         }
     }, 1000);
@@ -214,6 +228,7 @@ function startCountdown() {
 
 // Stop the clock
 function stopCounting() {
+    document.getElementById("scorevalue").innerHTML = score;
     clearInterval(action);
 }
 
