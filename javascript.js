@@ -120,18 +120,13 @@ document.getElementById("reset").onclick = function() {
 
 // Game start
 function gameStart() {     
-    hide("gameover"); 
-    playing = true; // changing mode
-    score = 0; // set score to 0
+    hide("gameover");
     
+    score = 0; // set score to 0 
     document.getElementById("scorevalue").innerHTML = score;
         
     // Show countdown box
     show("timing");
-        
-    // Reduce time by 1 sec
-    // timeRemaining = 11;
-    startCountdown();
         
     // generate Q&A
     question = 0;
@@ -139,28 +134,9 @@ function gameStart() {
 }
 
 
-function startCountdown() {
-    action = setInterval(function() {
-        timeRemaining -= 1;
-        document.getElementById("left").innerHTML = timeRemaining;
-        
-        // Game over
-        if (timeRemaining == 0) {
-            stopCounting();
-            gameOver();
-        }
-    }, 1000);
-}
-
-// Stop the clock
-function stopCounting() {
-    clearInterval(action);
-}
-
 // After the game end
 function gameOver() {
-    playing = false;
-    document.getElementById("reset").innerHTML = "Start Game";
+    document.getElementById("reset").innerHTML = "Start Over";
     hide("timing");
     show("gameover");
     document.getElementById("result").innerHTML = score;
@@ -168,11 +144,12 @@ function gameOver() {
 
 // Q&A
 function generateQA() {
-    if (question < 10) {
+    if (question < 0) {
         
         question++;
         // Set the time back
         timeRemaining = 11;
+        startCountdown();
     
         // generate question
         var x = 1+Math.round(9*Math.random());
@@ -202,6 +179,25 @@ function generateQA() {
     } else {
         gameOver();
     }
+}
+
+// Start the clock countdown
+function startCountdown() {
+    action = setInterval(function() {
+        timeRemaining -= 1;
+        document.getElementById("left").innerHTML = timeRemaining;
+        
+        // Game over
+        if (timeRemaining == 0) {
+            stopCounting();
+            gameOver();
+        }
+    }, 1000);
+}
+
+// Stop the clock
+function stopCounting() {
+    clearInterval(action);
 }
 
 // If we click on the answer box
