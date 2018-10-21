@@ -104,14 +104,6 @@ function gameStart() {
     document.getElementById("scorevalue").innerHTML = score;
         
     // Show countdown box
-    if (mode==3 && digits==1 && numbers==2) {
-        document.getElementById("left").innerHTML = 5;
-    }
-    else if (mode==3 && digits==1 && numbers==3) {
-        document.getElementById("left").innerHTML = 7;
-    } else {
-        document.getElementById("left").innerHTML = 10;
-    }
     show("timing");
         
     // generate Q&A
@@ -136,11 +128,14 @@ function generateQA() {
         // Set the time back
         if (mode==3 && digits==1 && numbers==2) {
             timeRemaining = 5;
+            document.getElementById("left").innerHTML = timeRemaining;
         }
         else if (mode==3 && digits==1 && numbers==3) {
             timeRemaining = 7;
+            document.getElementById("left").innerHTML = timeRemaining;
         } else {
             timeRemaining = 10;
+            document.getElementById("left").innerHTML = timeRemaining;
         }
 //        timeRemaining = 10;
         startCountdown();

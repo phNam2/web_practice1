@@ -34,6 +34,7 @@ html {
     margin-left: 550px;
     box-shadow: 0px 2px #64700b;
     cursor: pointer;
+    font-family: cursive;
     display: block;
 }
 
@@ -57,6 +58,7 @@ html {
     text-align: center;
     font-size: 30px;
     font-weight: 100;
+    font-family: cursive;
     color: white;
 /*    margin-bottom: 30px;*/
     display: block;
@@ -67,6 +69,7 @@ html {
     height: 50px;
     background-color: #e5a912;
     text-align: center;
+    font-family: cursive;
     line-height: 3;
     margin:0px 230px 20px;
     box-shadow: 0px 3px #752709;
@@ -103,6 +106,7 @@ html {
     font-style: italic;
     text-align: center;
     font-size: 25px;
+    font-family: cursive;
 }
 
 .row {
@@ -115,6 +119,7 @@ html {
     line-height: 4;
     width: 200px;
     height: 70px;
+    font-family: cursive;
     position: relative;
     margin: 0px 15px 50px 65px;
     float: left;
@@ -145,6 +150,7 @@ html {
     background-color: #9dd2ea;
     margin: 100px auto;
     padding: 20px ;
+    font-family: cursive;
     border-radius: 20px;
 /*    box-shadow: 4px 4px #F016DE;*/
     position: relative;
