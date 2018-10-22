@@ -303,7 +303,7 @@ function startCountdown() {
         timeRemaining -= 1;
         document.getElementById("left").innerHTML = timeRemaining;
         
-        // Reduce the clock by 5 seconds
+        // Reduce the clock by 5 seconds, in mode 2, when answer wrong question
         if (reduce == true) {
             reduce = false;
             timeRemaining -= 5;
@@ -374,6 +374,8 @@ for(i=1; i<5; i++) {
                 // In mode 2, when you answer wrong, you lose 2 points
                 score --; // Decrese the score by 1
                 document.getElementById("scorevalue").innerHTML = score;
+                
+                // The variable change, which make the call in the start counting method
                 reduce = true;
             }
         }
