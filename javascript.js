@@ -7,7 +7,7 @@ var question ;
 var mode;
 var numbers;
 var digits;
-
+var reduce;
 
 // The type of game button in the first page
 document.getElementById("normal").onclick = function() {
@@ -141,7 +141,24 @@ function gameStart() {
 
 // Game start for mode 2
 function gameStart2() {
+    hide("gameover");
     
+    reduce = false;
+    
+    score = 0; // set score to 0 
+    document.getElementById("scorevalue").innerHTML = score;
+        
+    // Show countdown box
+    show("timing");
+        
+    // Set time running
+    timeRemaining = 120;
+    document.getElementById("left").innerHTML = timeRemaining;
+    startCountdown();
+    
+    // generate Q&A
+    question = 0;
+    generateQA();
 }
 
 
@@ -211,7 +228,7 @@ function generateQA() {
                 document.getElementById("question").style.width="610px";
                 var x = (Math.random()*9+1).toFixed(3);
                 var y = (Math.random()*9+1).toFixed(3);
-                var k = (Math.random()*+1).toFixed(3);
+                var k = (Math.random()*9+1).toFixed(3);
                 ans = (x*y*k).toFixed(3);
             }
             document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
@@ -286,6 +303,12 @@ function startCountdown() {
         timeRemaining -= 1;
         document.getElementById("left").innerHTML = timeRemaining;
         
+        // Reduce the clock by 5 seconds
+        if (reduce == true) {
+            reduce = false;
+            timeRemaining -= 5;
+            document.getElementById("left").innerHTML = timeRemaining;
+        }
         // Game over
         if (timeRemaining <= 0) {
             
@@ -328,7 +351,9 @@ for(i=1; i<5; i++) {
             setTimeout( function(){
                 hide("correct");
             }, 1000);
-            stopCounting();
+            if (mode != 2) {
+                stopCounting();
+            }
             generateQA(); // Generate new question and answer
                 
         } else { // Wrong answer
@@ -346,9 +371,10 @@ for(i=1; i<5; i++) {
                 stopCounting();
                 gameOver();
             } else if (mode==2) {
-                // In mode 2, when you answer wrong, you lose 5 seconds
-                timeRemaining -= 5;
-                document.getElementById("left").innerHTML = timeRemaining;
+                // In mode 2, when you answer wrong, you lose 2 points
+                score --; // Decrese the score by 1
+                document.getElementById("scorevalue").innerHTML = score;
+                reduce = true;
             }
         }
     }
