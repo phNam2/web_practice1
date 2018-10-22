@@ -392,3 +392,19 @@ function show(id) {
     document.getElementById(id).style.display = "block";
 }
 
+
+// Change the language
+document.getElementById("language").onclick = function() {
+    var languages = document.getElementById("lang").innerHTML;
+    if (languages=="ENG") {
+        show("sarcasm");// Show "Correct" box for 1 sec
+        setTimeout( function(){
+            hide("sarcasm");
+            document.getElementById("lang").innerHTML = "VIE";
+        }, 5000);
+        
+        
+    } else {
+        document.getElementById("lang").innerHTML = "ENG";
+    }
+}
