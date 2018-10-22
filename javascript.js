@@ -44,7 +44,11 @@ document.getElementById("21").onclick = function() {
     numbers = 2;
     digits = 1;
     
-    gameStart();
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 document.getElementById("22").onclick = function() {
@@ -53,7 +57,11 @@ document.getElementById("22").onclick = function() {
     numbers = 2;
     digits = 2;
     
-    gameStart();
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 document.getElementById("31").onclick = function() {
@@ -62,7 +70,11 @@ document.getElementById("31").onclick = function() {
     numbers = 3;
     digits = 1;
     
-    gameStart();
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 document.getElementById("32").onclick = function() {
@@ -71,7 +83,11 @@ document.getElementById("32").onclick = function() {
     numbers = 3;
     digits = 2;
     
-    gameStart();
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 document.getElementById("2decimal").onclick = function() {
@@ -79,6 +95,12 @@ document.getElementById("2decimal").onclick = function() {
     show("container2");
     numbers = 2;
     digits = 0;
+        
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 document.getElementById("3decimal").onclick = function() {
@@ -86,6 +108,12 @@ document.getElementById("3decimal").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 0;
+        
+    if (mode == 2) {
+        gameStart2();    
+    } else {
+        gameStart();
+    }
 }
 
 
@@ -96,7 +124,7 @@ document.getElementById("reset").onclick = function() {
 }
 
 
-// Game start
+// Game start for mode 1 and 3
 function gameStart() {     
     hide("gameover");
     
@@ -111,6 +139,11 @@ function gameStart() {
     generateQA();
 }
 
+// Game start for mode 2
+function gameStart2() {
+    
+}
+
 
 // After the game end
 function gameOver() {
@@ -122,31 +155,34 @@ function gameOver() {
 
 // Q&A
 function generateQA() {
-    if (question < 50) {
+    if ( (question<50) && (mode==1) || 
+         (question<50) && (mode==3) ||
+         (mode==2) ) {
         
         question++;
-        // Set the time back
+        // Set the time back for each categories of the game
         if (mode==3 && digits==1 && numbers==2) {
             timeRemaining = 5;
             document.getElementById("left").innerHTML = timeRemaining;
+            startCountdown();
         }
         else if (mode==3 && digits==1 && numbers==3) {
             timeRemaining = 7;
             document.getElementById("left").innerHTML = timeRemaining;
-        } else {
+            startCountdown();
+        } else if (mode != 2){
             timeRemaining = 10;
             document.getElementById("left").innerHTML = timeRemaining;
+            startCountdown();
         }
-//        timeRemaining = 10;
-        startCountdown();
     
         // generate question
 //        var x = 1+Math.round(9*Math.random());
 //        var y = 1+Math.round(9*Math.random());
         if (numbers == 2) {
             if (digits == 1) {
-                var x = Math.floor(Math.random() * 10);
-                var y = Math.floor(Math.random() * 10);
+                var x = Math.floor(Math.random() * 9+1);
+                var y = Math.floor(Math.random() * 9+1);
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 +10);
@@ -159,9 +195,9 @@ function generateQA() {
         } 
         if (numbers == 3) {
             if (digits == 1) {
-                var x = Math.floor(Math.random() * 10);
-                var y = Math.floor(Math.random() * 10);
-                var k = Math.floor(Math.random() * 10);
+                var x = Math.floor(Math.random() * 9+1);
+                var y = Math.floor(Math.random() * 9+1);
+                var k = Math.floor(Math.random() * 9+1);
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 + 10);
@@ -230,13 +266,21 @@ function startCountdown() {
         
         // Game over
         if (timeRemaining <= 0) {
-            score -= 2;
+            
             stopCounting();
             
-            if(mode==1) {
-               generateQA(); // Generate new question and answer
-            } else if (mode==3) {
+            // In mode 2, the game is over when the time run out
+            if (mode==2) {
                 gameOver();
+            }
+            else{
+                score -= 2; // If the time run out without correct answer, the score decrease by 2
+                document.getElementById("scorevalue").innerHTML = score;
+                if(mode==1) {
+                    generateQA(); // Generate new question and answer
+                } else if (mode==3) {
+                    gameOver();
+                }
             }
         }
     }, 1000);
@@ -244,7 +288,6 @@ function startCountdown() {
 
 // Stop the clock
 function stopCounting() {
-    document.getElementById("scorevalue").innerHTML = score;
     clearInterval(action);
 }
 
@@ -254,7 +297,7 @@ for(i=1; i<5; i++) {
     function() {
             // Yes, then is the answer correct?
         var choice = this.innerHTML;
-        if (choice == ans) {
+        if (choice == ans) { // Correct anwer
             score++; // Increase the score by 1
             document.getElementById("scorevalue").innerHTML = score;
                 
@@ -266,26 +309,35 @@ for(i=1; i<5; i++) {
             stopCounting();
             generateQA(); // Generate new question and answer
                 
-        } else {
-            score --;
+        } else { // Wrong answer
+            score --; // Decrese the score by 1
              document.getElementById("scorevalue").innerHTML = score;
                 
             show("wrong");
             setTimeout( function(){
                 hide("wrong");   
             }, 1000);
+            
+            //In mode 1, you will have another chance to answer the question till time run out
+            // In mode 3, when you answer wrong, you lose immidiately
             if (mode==3) {
                 stopCounting();
                 gameOver();
+            } else if (mode==2) {
+                // In mode 2, when you answer wrong, you lose 5 seconds
+                timeRemaining -= 5;
+                document.getElementById("left").innerHTML = timeRemaining;
             }
         }
     }
 }
 
+// Function used to hide the properties
 function hide(id) {
     document.getElementById(id).style.display = "none";
 }
 
+// Function used to show the properties
 function show(id) {
     document.getElementById(id).style.display = "block";
 }
