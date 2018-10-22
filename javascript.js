@@ -401,10 +401,14 @@ document.getElementById("language").onclick = function() {
         setTimeout( function(){
             hide("sarcasm");
             document.getElementById("lang").innerHTML = "VIE";
-        }, 5000);
+        }, 1000);
+        document.getElementById("line1").innerHTML = "TÍNH NHẨM";
+        document.getElementById("line2").innerHTML = "CHO VUI";
         
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
+        document.getElementById("line1").innerHTML = "MULTIPLICATION";
+        document.getElementById("line2").innerHTML = "FOR FUN";
     }
 }
