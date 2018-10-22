@@ -407,14 +407,21 @@ document.getElementById("language").onclick = function() {
         document.getElementById("normal").innerHTML = "Chơi bình thường";
         document.getElementById("fast").innerHTML = "Chơi nhanh";
         document.getElementById("one").innerHTML = "Không được sai";
-        document.getElementById("difficult").innerHTML = "Độ Khó";
         
+        document.getElementById("difficult").innerHTML = "Độ Khó";
         document.getElementById("21").innerHTML = "2 Số 1 Chữ số";
         document.getElementById("22").innerHTML = "2 Số 2 Chữ số";
         document.getElementById("31").innerHTML = "3 Số 1 Chữ số";
         document.getElementById("32").innerHTML = "3 Số 2 Chữ số";
         document.getElementById("2decimal").innerHTML = "2 Số thập phân";
         document.getElementById("3decimal").innerHTML = "3 Số thập phân";
+        
+//        document.getElementById("hold").innerHTML = "Điểm: ";
+        document.getElementById("instruction").innerHTML = "Chọn kết quả ở dưới";
+        document.getElementById("correct").innerHTML = "Đúng";
+        document.getElementById("wrong").innerHTML = "Sa";
+        document.getElementById("reset").innerHTML = "Quay về";
+        
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
@@ -423,13 +430,19 @@ document.getElementById("language").onclick = function() {
         document.getElementById("normal").innerHTML = "Normal Mode";
         document.getElementById("fast").innerHTML = "Fast Mode";
         document.getElementById("one").innerHTML = "One-shot Mode";
-        document.getElementById("difficult").innerHTML = "DIFFICULTY";
         
+        document.getElementById("difficult").innerHTML = "DIFFICULTY";
         document.getElementById("21").innerHTML = "2 Numbers, 1 digit";
         document.getElementById("22").innerHTML = "2 Numbers, 2 digit";
         document.getElementById("31").innerHTML = "3 Numbers, 1 digit";
         document.getElementById("32").innerHTML = "3 Numbers, 2 digit";
         document.getElementById("2decimal").innerHTML = "2 Decimal Numbers";
         document.getElementById("3decimal").innerHTML = "3 Decimal Numbers";
+        
+//        document.getElementById("hold").innerHTML = "Score: ";
+        document.getElementById("instruction").innerHTML = "Choose an answer down here";
+        document.getElementById("correct").innerHTML = "Correct";
+        document.getElementById("wrong").innerHTML = "Wrong";
+        document.getElementById("reset").innerHTML = "Reset Game";
     }
 }
