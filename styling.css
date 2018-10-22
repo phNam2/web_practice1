@@ -8,7 +8,7 @@ html {
     width: 600px;
     height: 500px;
     background: linear-gradient( #0a88b2, #9dd2ea, #0a88b2, #9dd2ea);
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 20px ;
     border-radius: 30px;
     position: relative;
@@ -148,7 +148,7 @@ html {
     height: 500px;
     width: 600px;
     background-color: #9dd2ea;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 20px ;
     font-family: cursive;
     border-radius: 20px;
@@ -194,7 +194,7 @@ html {
 #question{
     width: 300px;
     height: 150px;
-    margin: 50px auto 10px auto;
+    margin: 80px auto 10px auto;
     background-color: brown;
     font-size: 70px;
     text-align: center;
@@ -204,7 +204,7 @@ html {
 }
 
 #instruction{
-    width: 300px;
+    width: 340px;
     height: 50px;
     background-color: blueviolet;
     margin: 10px auto;
@@ -214,7 +214,7 @@ html {
 }
 
 #choice{
-    width: 300px;
+    width: 340px;
     height: 80px;
     margin: 5px auto 10px auto;
 /*    background-color: black;*/
@@ -222,15 +222,15 @@ html {
 }
 
 .box{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     float:left;
 /*    margin: 10px 10px 10px 10px;*/
     background-color: aliceblue;
     margin-right: 20px;
     box-shadow: 0px 2px rgba(0,0,100, 10);
     text-align: center;
-    line-height: 3.5;
+    line-height: 4.0;
     position: relative;/* for the postion of the button*/
 /*
     -webkit-transition: all 2s;

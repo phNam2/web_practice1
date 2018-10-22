@@ -183,14 +183,17 @@ function generateQA() {
             if (digits == 1) {
                 var x = Math.floor(Math.random() * 9+1);
                 var y = Math.floor(Math.random() * 9+1);
+                ans = x*y;
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 +10);
+                ans = x*y;
             } else if (digits == 0){
-                
-                
+                document.getElementById("question").style.width="450px";
+                var x = (Math.random()*10+1).toFixed(3);
+                var y = (Math.random()*10+1).toFixed(3);
+                ans = (x*y).toFixed(3);
             }
-            ans = x*y;
             document.getElementById("question").innerHTML = x + "x" + y;
         } 
         if (numbers == 3) {
@@ -198,15 +201,19 @@ function generateQA() {
                 var x = Math.floor(Math.random() * 9+1);
                 var y = Math.floor(Math.random() * 9+1);
                 var k = Math.floor(Math.random() * 9+1);
+                ans = x*y*k;
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 + 10);
                 var k = Math.floor(Math.random() * 90 + 10);
+                ans = x*y*k;
             } else if (digits == 0){
-                
-                
+                document.getElementById("question").style.width="610px";
+                var x = (Math.random()*10+1).toFixed(3);
+                var y = (Math.random()*10+1).toFixed(3);
+                var k = (Math.random()*10+1).toFixed(3);
+                ans = (x*y*k).toFixed(3);
             }
-            ans = x*y*k;
             document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
         }
     
@@ -233,6 +240,14 @@ function generateQA() {
                         wrongans = Math.floor(Math.random() * 1000 + 0);
                     }
                 }
+                else if (digits == 0) {
+                    var wrongans = (Math.random()*9+1).toFixed(3);;
+                    // while (wrongans == ans) {
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = (Math.random()*10+1).toFixed(3);;
+                
+                    }
+                }
                 else if (digits == 1) {
                     var wrongans = Math.floor(Math.random() * 90 + 10);
                     // while (wrongans == ans) {
@@ -248,7 +263,6 @@ function generateQA() {
                 
                     }
                 }
-            
                 document.getElementById("box"+z).innerHTML = wrongans;
                 answers.push(wrongans);
             }
