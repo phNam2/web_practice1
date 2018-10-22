@@ -65,13 +65,13 @@ html {
 }
 
 .mode {
-    width: 150px;
+    width: 170px;
     height: 50px;
     background-color: #e5a912;
     text-align: center;
     font-family: cursive;
     line-height: 3;
-    margin:0px 230px 20px;
+    margin:0px 210px 20px;
     box-shadow: 0px 3px #752709;
     position: relative;
     cursor: pointer;
@@ -174,17 +174,16 @@ html {
 }
 
 #score {
-    background-color: yellow;
-    color: palevioletred;
-/*
-    height: 50px;
-    width: 80px;
-*/
-    border-radius: 10px;
-    box-shadow: 0px 2px black;
-    position: absolute;
+    width: 120px;
+    height: 40px;
+    background-color: #d0e81b;
+    text-align: center;
+    line-height: 2.6;
     right: 20px;
-    padding: 11px;
+    position: relative;
+    margin-left: 500px;
+/*    box-shadow: 0px 2px #64700b;*/
+    display: block;
     
 }
 
