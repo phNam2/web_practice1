@@ -404,11 +404,16 @@ document.getElementById("language").onclick = function() {
         }, 1000);
         document.getElementById("line1").innerHTML = "TÍNH NHẨM";
         document.getElementById("line2").innerHTML = "CHO VUI";
-        
+        document.getElementById("normal").innerHTML = "Chơi bình thường";
+        document.getElementById("fast").innerHTML = "Chơi nhanh";
+        document.getElementById("one").innerHTML = "Không được sai";
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
         document.getElementById("line1").innerHTML = "MULTIPLICATION";
         document.getElementById("line2").innerHTML = "FOR FUN";
+        document.getElementById("normal").innerHTML = "Normal Mode";
+        document.getElementById("fast").innerHTML = "Fast Mode";
+        document.getElementById("one").innerHTML = "One-shot Mode";
     }
 }
