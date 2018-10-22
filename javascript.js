@@ -241,10 +241,10 @@ function generateQA() {
                 
                     }
                 } else if (digits == 2){
-                    var wrongans = Math.floor(Math.random() * 10000)+100;
+                    var wrongans = Math.floor(Math.random() * 10000+100);
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.floor(Math.random() * 10000)+100;
+                        wrongans = Math.floor(Math.random() * 10000+100);
                 
                     }
                 }
