@@ -419,9 +419,9 @@ document.getElementById("language").onclick = function() {
 //        document.getElementById("hold").innerHTML = "Điểm: ";
         document.getElementById("instruction").innerHTML = "Chọn kết quả ở dưới";
         document.getElementById("correct").innerHTML = "Đúng";
-        document.getElementById("wrong").innerHTML = "Sa";
+        document.getElementById("wrong").innerHTML = "Sai";
         document.getElementById("reset").innerHTML = "Quay về";
-        
+//        document.getElementById("time").innerHTML = "Thời gian: ";
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
@@ -444,5 +444,6 @@ document.getElementById("language").onclick = function() {
         document.getElementById("correct").innerHTML = "Correct";
         document.getElementById("wrong").innerHTML = "Wrong";
         document.getElementById("reset").innerHTML = "Reset Game";
+//        document.getElementById("time").innerHTML = "Time remaining: ";
     }
 }
