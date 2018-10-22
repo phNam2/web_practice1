@@ -164,7 +164,12 @@ function gameStart2() {
 
 // After the game end
 function gameOver() {
-    document.getElementById("reset").innerHTML = "Start Over";
+    var languages = document.getElementById("lang").innerHTML;
+    if (languages=="ENG") {
+        document.getElementById("reset").innerHTML = "Start Over";
+    } else {
+        document.getElementById("reset").innerHTML = "Chơi lại";
+    }
     hide("timing");
     show("gameover");
     document.getElementById("result").innerHTML = score;
