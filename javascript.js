@@ -9,12 +9,20 @@ var numbers;
 var digits;
 var reduce;
 
+// Another go back button for page 2
+document.getElementById("back").onclick = function() {
+    // Reload the page
+//    window.history.back();
+    location.reload();
+}
+
 // The type of game button in the first page
 document.getElementById("normal").onclick = function() {
     hide("title");
     hide("normal");
     hide("fast");
     hide("one");
+    show("back");
     show("second");
     mode = 1;
 }
@@ -24,6 +32,7 @@ document.getElementById("fast").onclick = function() {
     hide("normal");
     hide("fast");
     hide("one");
+    show("back");
     show("second");
     mode = 2;
 }
@@ -33,6 +42,7 @@ document.getElementById("one").onclick = function() {
     hide("normal");
     hide("fast");
     hide("one");
+    show("back");
     show("second");
     mode = 3;
 }
