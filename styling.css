@@ -328,17 +328,29 @@ html {
 
 
 #gameover {
-    height: 150px;
-    width: 400px;
-    font-size: 25px;
+    height: 300px;
+    width: 610px;
+    font-size: 50px;
     text-align: center;
     line-height: 1.5;
     color: white;
     text-transform: uppercase;
     position: absolute;
-    top: 100px;
-    left: 115px;
+    top: 120px;
+    left: 15px;
     z-index: 2;
     background: linear-gradient(#f7d86a, #f75d04);
     display: none;
+}
+
+#over2 {
+    position: absolute;
+    margin-left: 60px;
+    margin-top: 0px;
+}
+
+#result {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: 2px;;
 }

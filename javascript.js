@@ -427,7 +427,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("wrong").innerHTML = "Sai";
         document.getElementById("reset").innerHTML = "Quay về";
         document.getElementById("over1").innerHTML = "Kết thúc!";
-//        document.getElementById("over2").innerHTML = "Điểm của bạn: ";
+        document.getElementById("over2").innerHTML = "Điểm của bạn: ";
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
@@ -451,6 +451,6 @@ document.getElementById("language").onclick = function() {
         document.getElementById("wrong").innerHTML = "Wrong";
         document.getElementById("reset").innerHTML = "Reset Game";
         document.getElementById("over1").innerHTML = "GAME OVER!";
-//        document.getElementById("over2").innerHTML = "YOUR SCORE IS ";
+        document.getElementById("over2").innerHTML = "YOUR SCORE IS ";
     }
 }
