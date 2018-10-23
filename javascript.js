@@ -406,8 +406,8 @@ document.getElementById("language").onclick = function() {
         setTimeout( function(){
             hide("sarcasm");
             document.getElementById("lang").innerHTML = "VIE";
-        }, 1000);
-        document.getElementById("line1").innerHTML = "TÍNH NHẨM";
+        }, 3000);
+        document.getElementById("line1").innerHTML = "TÍNH NHÂN";
         document.getElementById("line2").innerHTML = "CHO VUI";
         document.getElementById("normal").innerHTML = "Chơi bình thường";
         document.getElementById("fast").innerHTML = "Chơi nhanh";
