@@ -421,7 +421,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("2decimal").innerHTML = "2 Số thập phân";
         document.getElementById("3decimal").innerHTML = "3 Số thập phân";
         
-//        document.getElementById("hold").innerHTML = "Điểm: ";
+        document.getElementById("hold").textContent = "Điểm: ";
         document.getElementById("instruction").innerHTML = "Chọn kết quả ở dưới";
         document.getElementById("correct").innerHTML = "Đúng";
         document.getElementById("wrong").innerHTML = "Sai";
@@ -445,7 +445,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("2decimal").innerHTML = "2 Decimal Numbers";
         document.getElementById("3decimal").innerHTML = "3 Decimal Numbers";
         
-//        document.getElementById("hold").innerHTML = "Score: ";
+        document.getElementById("hold").textContent = "Score: ";
         document.getElementById("instruction").innerHTML = "Choose an answer down here";
         document.getElementById("correct").innerHTML = "Correct";
         document.getElementById("wrong").innerHTML = "Wrong";
