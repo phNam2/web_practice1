@@ -416,6 +416,7 @@ document.getElementById("language").onclick = function() {
         setTimeout( function(){
             hide("sarcasm");
             document.getElementById("lang").innerHTML = "VIE";
+            document.getElementById("back").innerHTML = "&#8249; Quay về";
         }, 3000);
         document.getElementById("line1").innerHTML = "TÍNH NHÂN";
         document.getElementById("line2").innerHTML = "CHO VUI";
@@ -441,6 +442,7 @@ document.getElementById("language").onclick = function() {
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
+        document.getElementById("back").innerHTML = "&#8249; Go back";
         document.getElementById("line1").innerHTML = "MULTIPLICATION";
         document.getElementById("line2").innerHTML = "FOR FUN";
         document.getElementById("normal").innerHTML = "Normal Mode";
