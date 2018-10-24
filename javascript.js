@@ -10,10 +10,17 @@ var digits;
 var reduce;
 
 // Another go back button for page 2
-document.getElementById("back").onclick = function() {
-    // Reload the page
-//    window.history.back();
-    location.reload();
+document.getElementById("back2").onclick = function() {
+    // Go back one page
+//    window.history.go(-2);
+//    location.reload();
+    show("title");
+    show("normal");
+    show("fast");
+    show("one");
+    show("back1");
+    hide("back2");
+    hide("second");
 }
 
 // The type of game button in the first page
@@ -22,7 +29,8 @@ document.getElementById("normal").onclick = function() {
     hide("normal");
     hide("fast");
     hide("one");
-    show("back");
+    hide("back1");
+    show("back2");
     show("second");
     mode = 1;
 }
@@ -32,7 +40,8 @@ document.getElementById("fast").onclick = function() {
     hide("normal");
     hide("fast");
     hide("one");
-    show("back");
+    hide("back1");
+    show("back2");
     show("second");
     mode = 2;
 }
@@ -42,7 +51,8 @@ document.getElementById("one").onclick = function() {
     hide("normal");
     hide("fast");
     hide("one");
-    show("back");
+    hide("back1");
+    show("back2");
     show("second");
     mode = 3;
 }
@@ -416,7 +426,8 @@ document.getElementById("language").onclick = function() {
         setTimeout( function(){
             hide("sarcasm");
             document.getElementById("lang").innerHTML = "VIE";
-            document.getElementById("back").innerHTML = "&#8249; Quay về";
+            document.getElementById("back1").innerHTML = "&#8249; Quay về";
+            document.getElementById("back2").innerHTML = "&#8249; Quay về";
         }, 3000);
         document.getElementById("line1").innerHTML = "TÍNH NHÂN";
         document.getElementById("line2").innerHTML = "CHO VUI";
@@ -442,7 +453,8 @@ document.getElementById("language").onclick = function() {
         
     } else {
         document.getElementById("lang").innerHTML = "ENG";
-        document.getElementById("back").innerHTML = "&#8249; Go back";
+        document.getElementById("back1").innerHTML = "&#8249; Go back";
+        document.getElementById("back2").innerHTML = "&#8249; Go back";
         document.getElementById("line1").innerHTML = "MULTIPLICATION";
         document.getElementById("line2").innerHTML = "FOR FUN";
         document.getElementById("normal").innerHTML = "Normal Mode";

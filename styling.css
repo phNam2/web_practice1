@@ -12,7 +12,7 @@ html {
     padding: 20px ;
     border-radius: 30px;
     position: relative;
-    display: none;
+    display: block;
 }
 
 #waste {
@@ -22,7 +22,16 @@ html {
     display: block;
 }
 
-#back {
+#back1 {
+    padding: 8px 20px;
+/*    display: none;*/
+}
+
+#back2 {
+    display: none;
+}
+
+.previous {
     font-family: cursive;
     text-decoration: none;
     display: inline-block;
@@ -30,29 +39,22 @@ html {
     left: 20px;
     position: relative;
     box-shadow: 0px 2px black;
-    display: none;
+    background-color: #f1f1f1;
+    color: black;
+    border-radius: 50%;
+    position: relative;
 }
 
-#back:hover {
+.previous:hover {
     background-color: #1c1919;
     color: white;
     box-shadow: 0px 2px #8c7575;
 }
 
-#back:active {
+.previous:active {
     box-shadow: 0px 0px #8c7575;
     top: 1px;
 }
-
-.previous {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-.round {
-    border-radius: 50%;
-}
-
 
 #language {
     width: 40px;
