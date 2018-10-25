@@ -533,6 +533,10 @@ document.getElementById("language").onclick = function() {
         document.getElementById("Multiple").innerHTML = "Phép Nhân";
         document.getElementById("Division").innerHTML = "Phép Chia";
         document.getElementById("Hyprid").innerHTML = "Tính gộp";
+        
+        document.getElementById("title1").innerHTML = "CỘNG/TRỪ CHO VUI";
+        document.getElementById("title2").innerHTML = "CHIA SỐ CHO VUI";
+        document.getElementById("title3").innerHTML = "TÍNH NHẨM CHO VUI";
         document.getElementById("line1").innerHTML = "TÍNH NHÂN";
         document.getElementById("line2").innerHTML = "CHO VUI";
         document.getElementById("normal").innerHTML = "Chơi bình thường";
@@ -564,6 +568,10 @@ document.getElementById("language").onclick = function() {
         document.getElementById("Multiple").innerHTML = "Multiplication";
         document.getElementById("Division").innerHTML = "Division";
         document.getElementById("Hyprid").innerHTML = "Everything";
+        
+        document.getElementById("title1").innerHTML = "ADD/SUB FOR FUN";
+        document.getElementById("title2").innerHTML = "DIVISION FOR FUN";
+        document.getElementById("title2").innerHTML = "CALCULATION FOR FUN";
         document.getElementById("line1").innerHTML = "MULTIPLICATION";
         document.getElementById("line2").innerHTML = "FOR FUN";
         document.getElementById("normal").innerHTML = "Normal Mode";
