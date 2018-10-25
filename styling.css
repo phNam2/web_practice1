@@ -83,6 +83,53 @@ html {
     top: 1px;
 }
 
+#gameTitle {
+    background: linear-gradient( #098961, #1edb9f, #4eb283);
+    margin:20px 50px;
+    width: 500px;
+    border-radius: 30px;
+    font-style: italic;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    font-family: cursive;
+    color: white;
+/*    margin-bottom: 30px;*/
+    display: block;
+}
+
+.line {
+    width: 600px;
+    height: 80px;
+}
+
+.operators {
+    text-align: center;
+    line-height: 4;
+    width: 200px;
+    height: 70px;
+    font-family: cursive;
+    position: relative;
+    margin: 0px 15px 50px 65px;
+    float: left;
+    background-color: #ae6ff2;
+    box-shadow: 0px 4px #260549;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.operators:hover{
+    background-color: #d8480f;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0px 2px #404704;   
+}
+
+.operators:active{
+    box-shadow: 0px 0px black;
+    top: 1px;
+}
+
 #title {
     background: linear-gradient( #098961, #1edb9f, #4eb283);
     margin-left: 50px;
