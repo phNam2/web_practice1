@@ -280,7 +280,6 @@ function gameStart2() {
     generateQA();
 }
 
-
 // After the game end
 function gameOver() {
     var languages = document.getElementById("lang").innerHTML;
@@ -292,6 +291,32 @@ function gameOver() {
     hide("timing");
     show("gameover");
     document.getElementById("result").innerHTML = score;
+}
+
+// Generate the multiplication operations
+function generateMultiple(x, y, k) {
+    if (numbers == 2) {
+        if (digits == 1) {
+            ans = x*y;
+        } else if (digits == 2){
+            ans = x*y;
+        } else if (digits == 0){
+            document.getElementById("question").style.width="450px";
+            ans = (x*y).toFixed(3);
+        }
+        document.getElementById("question").innerHTML = x + "x" + y;
+    } 
+    else if (numbers == 3) {
+        if (digits == 1) {
+            ans = x*y*k;
+        } else if (digits == 2){
+            ans = x*y*k;
+        } else if (digits == 0){
+            document.getElementById("question").style.width="610px";
+            ans = (x*y*k).toFixed(3);
+        }
+        document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+    }
 }
 
 // Q&A
@@ -317,46 +342,40 @@ function generateQA() {
             startCountdown();
         }
     
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // generate question
-//        var x = 1+Math.round(9*Math.random());
-//        var y = 1+Math.round(9*Math.random());
         if (numbers == 2) {
             if (digits == 1) {
                 var x = Math.floor(Math.random() * 9+1);
                 var y = Math.floor(Math.random() * 9+1);
-                ans = x*y;
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 +10);
-                ans = x*y;
             } else if (digits == 0){
                 document.getElementById("question").style.width="450px";
                 var x = (Math.random()*9+1).toFixed(3);
                 var y = (Math.random()*9+1).toFixed(3);
-                ans = (x*y).toFixed(3);
             }
-            document.getElementById("question").innerHTML = x + "x" + y;
+            generateMultiple(x, y, 0);
         } 
         else if (numbers == 3) {
             if (digits == 1) {
                 var x = Math.floor(Math.random() * 9+1);
                 var y = Math.floor(Math.random() * 9+1);
                 var k = Math.floor(Math.random() * 9+1);
-                ans = x*y*k;
             } else if (digits == 2){
                 var x = Math.floor(Math.random() * 90 + 10);
                 var y = Math.floor(Math.random() * 90 + 10);
                 var k = Math.floor(Math.random() * 90 + 10);
-                ans = x*y*k;
             } else if (digits == 0){
                 document.getElementById("question").style.width="610px";
                 var x = (Math.random()*9+1).toFixed(3);
                 var y = (Math.random()*9+1).toFixed(3);
                 var k = (Math.random()*9+1).toFixed(3);
-                ans = (x*y*k).toFixed(3);
             }
-            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+            generateMultiple(x, y, k);
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
         // generate answers
         var correctPos = 1+Math.round(3*Math.random());
