@@ -337,7 +337,7 @@ function generateQA() {
             }
             document.getElementById("question").innerHTML = x + "x" + y;
         } 
-        if (numbers == 3) {
+        else if (numbers == 3) {
             if (digits == 1) {
                 var x = Math.floor(Math.random() * 9+1);
                 var y = Math.floor(Math.random() * 9+1);
