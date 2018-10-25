@@ -101,25 +101,26 @@ html {
 .line {
     width: 600px;
     height: 80px;
+    display: ;
 }
 
 .operators {
     text-align: center;
-    line-height: 4;
+    line-height: 3;
     width: 200px;
-    height: 70px;
+    height: 50px;
     font-family: cursive;
     position: relative;
     margin: 0px 15px 50px 65px;
     float: left;
-    background-color: #ae6ff2;
-    box-shadow: 0px 4px #260549;
+    background-color: #c60f2b;
+    box-shadow: 0px 4px #700414;
     cursor: pointer;
     border-radius: 20px;
 }
 
 .operators:hover{
-    background-color: #d8480f;
+    background-color: #607f05;
     color: white;
     text-transform: uppercase;
     box-shadow: 0px 2px #404704;   
