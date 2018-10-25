@@ -14,7 +14,19 @@ var reduce;
 // Variables from 3rd stage
 var operate;
 
+document.getElementById("PlusSubtract").onclick = function() {
+    operate = 1;
+    show("title1");
+    show("normal");
+    show("fast");
+    show("one");
+    show("back1");
+    hide("gameTitle");
+    hide("operations");
+}
+
 document.getElementById("Multiple").onclick = function() {
+    operate = 2;
     show("title");
     show("normal");
     show("fast");
@@ -24,10 +36,40 @@ document.getElementById("Multiple").onclick = function() {
     hide("operations");
 }
 
+document.getElementById("Division").onclick = function() {
+    operate = 3;
+    show("title2");
+    show("normal");
+    show("fast");
+    show("one");
+    show("back1");
+    hide("gameTitle");
+    hide("operations");
+}
+
+document.getElementById("Hyprid").onclick = function() {
+    operate = 4;
+    show("title3");
+    show("normal");
+    show("fast");
+    show("one");
+    show("back1");
+    hide("gameTitle");
+    hide("operations");
+}
+
 document.getElementById("back1").onclick = function() {
+    if (operate==1) {
+        hide("title1");
+    } else if (operate==2) {
+        hide("title");       
+    } else if (operate==3) {
+        hide("title2");       
+    } else if (operate==4) {
+        hide("title3");       
+    }
     show("gameTitle");
     show("operations");
-    hide("title");
     hide("normal");
     hide("fast");
     hide("one");
@@ -39,7 +81,15 @@ document.getElementById("back2").onclick = function() {
     // Go back one page
 //    window.history.go(-2);
 //    location.reload();
-    show("title");
+    if (operate==1) {
+        show("title1");
+    } else if (operate==2) {
+        show("title");     
+    } else if (operate==3) {
+        show("title2");      
+    } else if (operate==4) {
+        show("title3");
+    }
     show("normal");
     show("fast");
     show("one");
@@ -50,7 +100,15 @@ document.getElementById("back2").onclick = function() {
 
 // The type of game button in the first page
 document.getElementById("normal").onclick = function() {
-    hide("title");
+    if (operate==1) {
+        hide("title1");
+    } else if (operate==2) {
+        hide("title");       
+    } else if (operate==3) {
+        hide("title2");       
+    } else if (operate==4) {
+        hide("title3");       
+    }
     hide("normal");
     hide("fast");
     hide("one");
@@ -61,7 +119,15 @@ document.getElementById("normal").onclick = function() {
 }
 
 document.getElementById("fast").onclick = function() {
-    hide("title");
+    if (operate==1) {
+        hide("title1");
+    } else if (operate==2) {
+        hide("title");       
+    } else if (operate==3) {
+        hide("title2");       
+    } else if (operate==4) {
+        hide("title3");       
+    }
     hide("normal");
     hide("fast");
     hide("one");
@@ -72,7 +138,15 @@ document.getElementById("fast").onclick = function() {
 }
 
 document.getElementById("one").onclick = function() {
-    hide("title");
+    if (operate==1) {
+        hide("title1");
+    } else if (operate==2) {
+        hide("title");       
+    } else if (operate==3) {
+        hide("title2");       
+    } else if (operate==4) {
+        hide("title3");       
+    }
     hide("normal");
     hide("fast");
     hide("one");
