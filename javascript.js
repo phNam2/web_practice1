@@ -520,11 +520,11 @@ function show(id) {
 // Change the language
 document.getElementById("language").onclick = function() {
     var languages = document.getElementById("lang").innerHTML;
-    if (languages=="ENG") {
+    if (languages=="VIE") {
         show("sarcasm");// Show "Correct" box for 1 sec
         setTimeout( function(){
             hide("sarcasm");
-            document.getElementById("lang").innerHTML = "VIE";
+            document.getElementById("lang").innerHTML = "ENG";
             document.getElementById("back1").innerHTML = "&#8249; Quay về";
             document.getElementById("back2").innerHTML = "&#8249; Quay về";
         }, 3000);
@@ -560,7 +560,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("over2").innerHTML = "Điểm của bạn: ";
         
     } else {
-        document.getElementById("lang").innerHTML = "ENG";
+        document.getElementById("lang").innerHTML = "VIE";
         document.getElementById("back1").innerHTML = "&#8249; Go back";
         document.getElementById("back2").innerHTML = "&#8249; Go back";
         document.getElementById("gameTitle").innerHTML = "MATH GAME";
@@ -571,7 +571,7 @@ document.getElementById("language").onclick = function() {
         
         document.getElementById("title1").innerHTML = "ADD/SUB FOR FUN";
         document.getElementById("title2").innerHTML = "DIVISION FOR FUN";
-        document.getElementById("title2").innerHTML = "CALCULATION FOR FUN";
+        document.getElementById("title3").innerHTML = "CALCULATION FOR FUN";
         document.getElementById("line1").innerHTML = "MULTIPLICATION";
         document.getElementById("line2").innerHTML = "FOR FUN";
         document.getElementById("normal").innerHTML = "Normal Mode";

@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    background: radial-gradient(ellipse, #332c2c, #1e1414);
+    background: radial-gradient(ellipse, #665e5e,  #000000);
 }
 
 /*The introduction of the game*/
@@ -116,8 +116,8 @@ html {
     position: relative;
     margin: 0px 15px 50px 65px;
     float: left;
-    background-color: #c60f2b;
-    box-shadow: 0px 4px #700414;
+    background-color: #d1122f;
+    box-shadow: 0px 4px #5b0606;
     cursor: pointer;
     border-radius: 20px;
 }
