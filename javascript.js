@@ -1,13 +1,38 @@
+// Variables from 1st stage
 var action;
 var score;
 var timeRemaining;
 var ans;
 var question ;
 
+// Variables from 2nd stage
 var mode;
 var numbers;
 var digits;
 var reduce;
+
+// Variables from 3rd stage
+var operate;
+
+document.getElementById("Multiple").onclick = function() {
+    show("title");
+    show("normal");
+    show("fast");
+    show("one");
+    show("back1");
+    hide("gameTitle");
+    hide("operations");
+}
+
+document.getElementById("back1").onclick = function() {
+    show("gameTitle");
+    show("operations");
+    hide("title");
+    hide("normal");
+    hide("fast");
+    hide("one");
+    hide("back1");
+}
 
 // Another go back button for page 2
 document.getElementById("back2").onclick = function() {
