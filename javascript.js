@@ -356,7 +356,17 @@ function generateQA() {
                 var x = (Math.random()*9+1).toFixed(3);
                 var y = (Math.random()*9+1).toFixed(3);
             }
-            generateMultiple(x, y, 0);
+            
+            
+            if (operate==1) {
+                
+            } else if (operate==2) {
+                generateMultiple(x, y, 0);           
+            } else if (operate==3) {
+                       
+            } else if (operate==4) {
+                       
+            }
         } 
         else if (numbers == 3) {
             if (digits == 1) {
@@ -373,7 +383,16 @@ function generateQA() {
                 var y = (Math.random()*9+1).toFixed(3);
                 var k = (Math.random()*9+1).toFixed(3);
             }
-            generateMultiple(x, y, k);
+            
+            if (operate==1) {
+                
+            } else if (operate==2) {
+                generateMultiple(x, y, k);           
+            } else if (operate==3) {
+                       
+            } else if (operate==4) {
+                       
+            }
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
