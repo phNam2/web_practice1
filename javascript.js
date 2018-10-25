@@ -294,11 +294,32 @@ function gameOver() {
 }
 
 // Generate the multiplication operations
+function generatePlusSub(x, y, k) {
+    if (numbers == 2) {
+        if (digits == 1 || digits == 2) {
+            ans = x+y;
+        } else if (digits == 0){
+            document.getElementById("question").style.width="450px";
+            ans = (x+y).toFixed(3);
+        }
+        document.getElementById("question").innerHTML = x + "+" + y;
+    } 
+    else if (numbers == 3) {
+        if (digits == 1 || digits == 2) {
+            ans = x+y+k;
+        } else if (digits == 0){
+            document.getElementById("question").style.width="610px";
+//            ans = (x+y+k).toFixed(3);
+            ans = x+y+k;
+        }
+        document.getElementById("question").innerHTML = x + "+" + y + "+" + k;
+    }
+}
+
+// Generate the multiplication operations
 function generateMultiple(x, y, k) {
     if (numbers == 2) {
-        if (digits == 1) {
-            ans = x*y;
-        } else if (digits == 2){
+        if (digits == 1 || digits == 2) {
             ans = x*y;
         } else if (digits == 0){
             document.getElementById("question").style.width="450px";
@@ -307,9 +328,7 @@ function generateMultiple(x, y, k) {
         document.getElementById("question").innerHTML = x + "x" + y;
     } 
     else if (numbers == 3) {
-        if (digits == 1) {
-            ans = x*y*k;
-        } else if (digits == 2){
+        if (digits == 1 || digits == 2) {
             ans = x*y*k;
         } else if (digits == 0){
             document.getElementById("question").style.width="610px";
@@ -355,11 +374,13 @@ function generateQA() {
                 document.getElementById("question").style.width="450px";
                 var x = (Math.random()*9+1).toFixed(3);
                 var y = (Math.random()*9+1).toFixed(3);
+//                var x = Math.floor(Math.random() * 90 + 10);
+//                var y = Math.floor(Math.random() * 90 +10);
             }
             
             
             if (operate==1) {
-                
+                generatePlusSub(x, y, 0);
             } else if (operate==2) {
                 generateMultiple(x, y, 0);           
             } else if (operate==3) {
@@ -384,8 +405,9 @@ function generateQA() {
                 var k = (Math.random()*9+1).toFixed(3);
             }
             
+            
             if (operate==1) {
-                
+                generatePlusSub(x, y, k);
             } else if (operate==2) {
                 generateMultiple(x, y, k);           
             } else if (operate==3) {
