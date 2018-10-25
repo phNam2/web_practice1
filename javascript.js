@@ -362,6 +362,7 @@ function generateQA() {
         var correctPos = 1+Math.round(3*Math.random());
         var answers = [ans];
     
+        // Give the answer for all the buttons
         for (var z=1; z<=4; z++) {
             if (z == correctPos) {
                 document.getElementById("box"+z).innerHTML = ans;
