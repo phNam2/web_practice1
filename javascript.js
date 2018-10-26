@@ -62,11 +62,11 @@ document.getElementById("back1").onclick = function() {
     if (operate==1) {
         hide("title1");
     } else if (operate==2) {
-        hide("title");       
+        hide("title");
     } else if (operate==3) {
-        hide("title2");       
+        hide("title2");
     } else if (operate==4) {
-        hide("title3");       
+        hide("title3");
     }
     show("gameTitle");
     show("operations");
@@ -84,9 +84,9 @@ document.getElementById("back2").onclick = function() {
     if (operate==1) {
         show("title1");
     } else if (operate==2) {
-        show("title");     
+        show("title");
     } else if (operate==3) {
-        show("title2");      
+        show("title2");
     } else if (operate==4) {
         show("title3");
     }
@@ -103,11 +103,11 @@ document.getElementById("normal").onclick = function() {
     if (operate==1) {
         hide("title1");
     } else if (operate==2) {
-        hide("title");       
+        hide("title");
     } else if (operate==3) {
-        hide("title2");       
+        hide("title2");
     } else if (operate==4) {
-        hide("title3");       
+        hide("title3");
     }
     hide("normal");
     hide("fast");
@@ -122,11 +122,11 @@ document.getElementById("fast").onclick = function() {
     if (operate==1) {
         hide("title1");
     } else if (operate==2) {
-        hide("title");       
+        hide("title");
     } else if (operate==3) {
-        hide("title2");       
+        hide("title2");
     } else if (operate==4) {
-        hide("title3");       
+        hide("title3");
     }
     hide("normal");
     hide("fast");
@@ -141,11 +141,11 @@ document.getElementById("one").onclick = function() {
     if (operate==1) {
         hide("title1");
     } else if (operate==2) {
-        hide("title");       
+        hide("title");
     } else if (operate==3) {
-        hide("title2");       
+        hide("title2");
     } else if (operate==4) {
-        hide("title3");       
+        hide("title3");
     }
     hide("normal");
     hide("fast");
@@ -162,9 +162,9 @@ document.getElementById("21").onclick = function() {
     show("container2");
     numbers = 2;
     digits = 1;
-    
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -175,9 +175,9 @@ document.getElementById("22").onclick = function() {
     show("container2");
     numbers = 2;
     digits = 2;
-    
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -188,9 +188,9 @@ document.getElementById("31").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 1;
-    
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -201,9 +201,9 @@ document.getElementById("32").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 2;
-    
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -214,9 +214,9 @@ document.getElementById("2decimal").onclick = function() {
     show("container2");
     numbers = 2;
     digits = 0;
-        
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -227,9 +227,9 @@ document.getElementById("3decimal").onclick = function() {
     show("container2");
     numbers = 3;
     digits = 0;
-        
+
     if (mode == 2) {
-        gameStart2();    
+        gameStart2();
     } else {
         gameStart();
     }
@@ -244,15 +244,15 @@ document.getElementById("reset").onclick = function() {
 
 
 // Game start for mode 1 and 3
-function gameStart() {     
+function gameStart() {
     hide("gameover");
-    
-    score = 0; // set score to 0 
+
+    score = 0; // set score to 0
     document.getElementById("scorevalue").innerHTML = score;
-        
+
     // Show countdown box
     show("timing");
-        
+
     // generate Q&A
     question = 0;
     generateQA();
@@ -261,20 +261,20 @@ function gameStart() {
 // Game start for mode 2
 function gameStart2() {
     hide("gameover");
-    
+
     reduce = false;
-    
-    score = 0; // set score to 0 
+
+    score = 0; // set score to 0
     document.getElementById("scorevalue").innerHTML = score;
-        
+
     // Show countdown box
     show("timing");
-        
+
     // Set time running
     timeRemaining = 120;
     document.getElementById("left").innerHTML = timeRemaining;
     startCountdown();
-    
+
     // generate Q&A
     question = 0;
     generateQA();
@@ -300,19 +300,18 @@ function generatePlusSub(x, y, k) {
             ans = x+y;
         } else if (digits == 0){
             document.getElementById("question").style.width="450px";
-            ans = (x+y).toFixed(3);
+            ans = (x-(-y)).toFixed(3);
         }
-        document.getElementById("question").innerHTML = x + "+" + y;
-    } 
+        document.getElementById("question").innerHTML = x + '+' + y;
+    }
     else if (numbers == 3) {
         if (digits == 1 || digits == 2) {
-            ans = x+y+k;
+            ans = x*y*k;
         } else if (digits == 0){
             document.getElementById("question").style.width="610px";
-//            ans = (x+y+k).toFixed(3);
-            ans = x+y+k;
+            ans = (x*y*k).toFixed(3);
         }
-        document.getElementById("question").innerHTML = x + "+" + y + "+" + k;
+        document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
     }
 }
 
@@ -326,7 +325,7 @@ function generateMultiple(x, y, k) {
             ans = (x*y).toFixed(3);
         }
         document.getElementById("question").innerHTML = x + "x" + y;
-    } 
+    }
     else if (numbers == 3) {
         if (digits == 1 || digits == 2) {
             ans = x*y*k;
@@ -340,10 +339,10 @@ function generateMultiple(x, y, k) {
 
 // Q&A
 function generateQA() {
-    if ( (question<50) && (mode==1) || 
+    if ( (question<50) && (mode==1) ||
          (question<50) && (mode==3) ||
          (mode==2) ) {
-        
+
         question++;
         // Set the time back for each categories of the game
         if (mode==3 && digits==1 && numbers==2) {
@@ -360,7 +359,7 @@ function generateQA() {
             document.getElementById("left").innerHTML = timeRemaining;
             startCountdown();
         }
-    
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // generate question
         if (numbers == 2) {
@@ -377,18 +376,18 @@ function generateQA() {
 //                var x = Math.floor(Math.random() * 90 + 10);
 //                var y = Math.floor(Math.random() * 90 +10);
             }
-            
-            
+
+
             if (operate==1) {
                 generatePlusSub(x, y, 0);
             } else if (operate==2) {
-                generateMultiple(x, y, 0);           
+                generateMultiple(x, y, 0);
             } else if (operate==3) {
-                       
+
             } else if (operate==4) {
-                       
+
             }
-        } 
+        }
         else if (numbers == 3) {
             if (digits == 1) {
                 var x = Math.floor(Math.random() * 9+1);
@@ -404,24 +403,24 @@ function generateQA() {
                 var y = (Math.random()*9+1).toFixed(3);
                 var k = (Math.random()*9+1).toFixed(3);
             }
-            
-            
+
+
             if (operate==1) {
                 generatePlusSub(x, y, k);
             } else if (operate==2) {
-                generateMultiple(x, y, k);           
+                generateMultiple(x, y, k);
             } else if (operate==3) {
-                       
+
             } else if (operate==4) {
-                       
+
             }
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
         // generate answers
         var correctPos = 1+Math.round(3*Math.random());
         var answers = [ans];
-    
+
         // Give the answer for all the buttons
         for (var z=1; z<=4; z++) {
             if (z == correctPos) {
@@ -447,7 +446,7 @@ function generateQA() {
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = (Math.random()*90+1).toFixed(3);;
-                
+
                     }
                 }
                 else if (numbers == 3 && digits == 0) {
@@ -455,7 +454,7 @@ function generateQA() {
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = (Math.random()*900+1).toFixed(3);;
-                
+
                     }
                 }
                 else if (digits == 1) {
@@ -463,20 +462,20 @@ function generateQA() {
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = Math.floor(Math.random() * 90 + 10);
-                
+
                     }
                 } else if (digits == 2){
                     var wrongans = Math.floor(Math.random() * 10000+100);
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = Math.floor(Math.random() * 10000+100);
-                
+
                     }
                 }
                 document.getElementById("box"+z).innerHTML = wrongans;
                 answers.push(wrongans);
             }
-        }    
+        }
     } else {
         gameOver();
     }
@@ -487,7 +486,7 @@ function startCountdown() {
     action = setInterval(function() {
         timeRemaining -= 1;
         document.getElementById("left").innerHTML = timeRemaining;
-        
+
         // Reduce the clock by 5 seconds, in mode 2, when answer wrong question
         if (reduce == true) {
             reduce = false;
@@ -496,9 +495,9 @@ function startCountdown() {
         }
         // Game over
         if (timeRemaining <= 0) {
-            
+
             stopCounting();
-            
+
             // In mode 2, the game is over when the time run out
             if (mode==2) {
                 gameOver();
@@ -530,7 +529,7 @@ for(i=1; i<5; i++) {
         if (choice == ans) { // Correct anwer
             score++; // Increase the score by 1
             document.getElementById("scorevalue").innerHTML = score;
-                
+
             // Show "Correct" box for 1 sec
             show("correct");// Show "Correct" box for 1 sec
             setTimeout( function(){
@@ -540,16 +539,16 @@ for(i=1; i<5; i++) {
                 stopCounting();
             }
             generateQA(); // Generate new question and answer
-                
+
         } else { // Wrong answer
             score --; // Decrese the score by 1
              document.getElementById("scorevalue").innerHTML = score;
-                
+
             show("wrong");
             setTimeout( function(){
-                hide("wrong");   
+                hide("wrong");
             }, 1000);
-            
+
             //In mode 1, you will have another chance to answer the question till time run out
             // In mode 3, when you answer wrong, you lose immidiately
             if (mode==3) {
@@ -559,7 +558,7 @@ for(i=1; i<5; i++) {
                 // In mode 2, when you answer wrong, you lose 2 points
                 score --; // Decrese the score by 1
                 document.getElementById("scorevalue").innerHTML = score;
-                
+
                 // The variable change, which make the call in the start counting method
                 reduce = true;
             }
@@ -594,7 +593,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("Multiple").innerHTML = "Phép Nhân";
         document.getElementById("Division").innerHTML = "Phép Chia";
         document.getElementById("Hyprid").innerHTML = "Tính gộp";
-        
+
         document.getElementById("title1").innerHTML = "CỘNG/TRỪ CHO VUI";
         document.getElementById("title2").innerHTML = "CHIA SỐ CHO VUI";
         document.getElementById("title3").innerHTML = "TÍNH NHẨM CHO VUI";
@@ -603,7 +602,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("normal").innerHTML = "Chơi bình thường";
         document.getElementById("fast").innerHTML = "Chơi nhanh";
         document.getElementById("one").innerHTML = "Không được sai";
-        
+
         document.getElementById("difficult").innerHTML = "Độ Khó";
         document.getElementById("21").innerHTML = "2 Số 1 Chữ số";
         document.getElementById("22").innerHTML = "2 Số 2 Chữ số";
@@ -611,7 +610,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("32").innerHTML = "3 Số 2 Chữ số";
         document.getElementById("2decimal").innerHTML = "2 Số thập phân";
         document.getElementById("3decimal").innerHTML = "3 Số thập phân";
-        
+
         document.getElementById("hold").textContent = "Điểm: ";
         document.getElementById("instruction").innerHTML = "Chọn kết quả ở dưới";
         document.getElementById("correct").innerHTML = "Đúng";
@@ -619,7 +618,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("reset").innerHTML = "Quay về";
         document.getElementById("over1").innerHTML = "Kết thúc!";
         document.getElementById("over2").innerHTML = "Điểm của bạn: ";
-        
+
     } else {
         document.getElementById("lang").innerHTML = "VIE";
         document.getElementById("back1").innerHTML = "&#8249; Go back";
@@ -629,7 +628,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("Multiple").innerHTML = "Multiplication";
         document.getElementById("Division").innerHTML = "Division";
         document.getElementById("Hyprid").innerHTML = "Everything";
-        
+
         document.getElementById("title1").innerHTML = "ADD/SUB FOR FUN";
         document.getElementById("title2").innerHTML = "DIVISION FOR FUN";
         document.getElementById("title3").innerHTML = "CALCULATION FOR FUN";
@@ -638,7 +637,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("normal").innerHTML = "Normal Mode";
         document.getElementById("fast").innerHTML = "Fast Mode";
         document.getElementById("one").innerHTML = "One-shot Mode";
-        
+
         document.getElementById("difficult").innerHTML = "DIFFICULTY";
         document.getElementById("21").innerHTML = "2 Numbers, 1 digit";
         document.getElementById("22").innerHTML = "2 Numbers, 2 digit";
@@ -646,7 +645,7 @@ document.getElementById("language").onclick = function() {
         document.getElementById("32").innerHTML = "3 Numbers, 2 digit";
         document.getElementById("2decimal").innerHTML = "2 Decimal Numbers";
         document.getElementById("3decimal").innerHTML = "3 Decimal Numbers";
-        
+
         document.getElementById("hold").textContent = "Score: ";
         document.getElementById("instruction").innerHTML = "Choose an answer down here";
         document.getElementById("correct").innerHTML = "Correct";
