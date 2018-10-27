@@ -427,20 +427,15 @@ function generateQA() {
                 document.getElementById("box"+z).innerHTML = ans;
             } else {
                 // wrong answers
-                if (numbers == 3 && digits ==2) {
-                    var wrongans = Math.floor(Math.random() * 1000000 + 1000);
-                    // while (wrongans == ans) {
+                var min = ans;
+                var max = ans;
+                if (digits == 1 || digits == 2) {
+                    var wrongans = Math.round(Math.random() * max)+min;
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.floor(Math.random() * 1000000 + 1000);
+                        wrongans = Math.round(Math.random() * max)+min;
+
                     }
-                }
-                else if (numbers == 3 && digits ==1) {
-                    var wrongans = Math.floor(Math.random() * 1000 + 0);
-                    // while (wrongans == ans) {
-                    while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.floor(Math.random() * 1000 + 0);
-                    }
-                }
+                } 
                 else if (numbers == 2 && digits == 0) {
                     var wrongans = (Math.random()*90+1).toFixed(3);;
                     // while (wrongans == ans) {
@@ -454,21 +449,6 @@ function generateQA() {
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = (Math.random()*900+1).toFixed(3);;
-
-                    }
-                }
-                else if (digits == 1) {
-                    var wrongans = Math.floor(Math.random() * 90 + 10);
-                    // while (wrongans == ans) {
-                    while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.floor(Math.random() * 90 + 10);
-
-                    }
-                } else if (digits == 2){
-                    var wrongans = Math.floor(Math.random() * 10000+100);
-                    // while (wrongans == ans) {
-                    while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.floor(Math.random() * 10000+100);
 
                     }
                 }
