@@ -445,7 +445,7 @@ function generateQA() {
 
                     }
                 }
-                 if (numbers == 2 && digits == 0) {
+                 else if (digits == 0) {
                     var wrongans = ((Math.random() * max) + min).toFixed(3);;
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
@@ -453,14 +453,14 @@ function generateQA() {
 
                     }
                 }
-                else if (numbers == 3 && digits == 0) {
-                    var wrongans = (Math.random()*90+1).toFixed(3);;
-                    // while (wrongans == ans) {
-                    while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = (Math.random()*900+1).toFixed(3);
-
-                    }
-                }
+//                else if (numbers == 3 && digits == 0) {
+//                    var wrongans = (Math.random()*90+1).toFixed(3);;
+//                    // while (wrongans == ans) {
+//                    while (answers.indexOf(wrongans) > -1 ) {
+//                        wrongans = (Math.random()*900+1).toFixed(3);
+//
+//                    }
+//                }
                 document.getElementById("box"+z).innerHTML = wrongans;
                 answers.push(wrongans);
             }
