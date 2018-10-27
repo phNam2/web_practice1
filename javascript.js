@@ -316,12 +316,7 @@ function add(x, y) {
     if (digits == 1 || digits == 2) {
         ans = x+y;
     } else if (digits == 0){
-        if (numbers==2) {
-            document.getElementById("question").style.width="450px";
-        }
-        else {
-            document.getElementById("question").style.width="610px";
-        }
+        changeStyle();
         ans = (x-(-y)).toFixed(3);
     }
 }
@@ -330,12 +325,7 @@ function minus(x, y) {
     if (digits == 1 || digits == 2) {
         ans = x-y;
     } else if (digits == 0){
-        if (numbers==2) {
-            document.getElementById("question").style.width="450px";
-        }
-        else {
-            document.getElementById("question").style.width="610px";
-        }
+        changeStyle();
         ans = (x-y).toFixed(3);
     }
 }
@@ -344,7 +334,7 @@ function multiple(x, y) {
     if (digits == 1 || digits == 2) {
         ans = x*y;
     } else if (digits == 0){
-        document.getElementById("question").style.width="450px";
+        changeStyle();
         ans = (x*y).toFixed(3);
     }
 }
@@ -353,8 +343,17 @@ function divide(x, y) {
     if (digits == 1 || digits == 2) {
         ans = (x/y).toFixed(1);
     } else if (digits == 0){
-        document.getElementById("question").style.width="450px";
+        changeStyle();
         ans = (x/y).toFixed(3);
+    }
+}
+
+function changeStyle() {
+    if (numbers==2) {
+            document.getElementById("question").style.width="450px";
+    }
+    else {
+            document.getElementById("question").style.width="610px";
     }
 }
 
@@ -400,7 +399,6 @@ function generateMultiple(x, y, k) {
     else if (numbers == 3) {
         multiple(x, y);
         multiple(ans, k);
-        document.getElementById("question").style.width="610px";
         document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
     }
 }
@@ -414,7 +412,6 @@ function generateDivision(x, y, k) {
     else if (numbers == 3) {
         divide(x, y);
         divide(ans, k);
-        document.getElementById("question").style.width="610px";
         document.getElementById("question").innerHTML = x + "/" + y + "/" + k;
     }
 }
