@@ -284,9 +284,9 @@ function gameStart2() {
 function gameOver() {
     var languages = document.getElementById("lang").innerHTML;
     if (languages=="ENG") {
-        document.getElementById("reset").innerHTML = "Start Over";
-    } else {
         document.getElementById("reset").innerHTML = "Chơi lại";
+    } else {
+        document.getElementById("reset").innerHTML = "Start Over";
     }
     hide("timing");
     show("gameover");
@@ -295,9 +295,9 @@ function gameOver() {
 
 // Generate the multiplication operations
 function generatePlusSub(x, y, k) {
-    var plus = Math.floor((Math.random() * 2) + 1);
-    if(plus==1) {
-        if (numbers == 2) {
+    if (numbers == 2) {
+        var plus = Math.floor((Math.random() * 2) + 1);
+        if(plus==1) {
             if (digits == 1 || digits == 2) {
                 ans = x+y;
             } else if (digits == 0){
@@ -305,36 +305,22 @@ function generatePlusSub(x, y, k) {
                 ans = (x-(-y)).toFixed(3);
             }
             document.getElementById("question").innerHTML = x + '+' + y;
-        }
-        else if (numbers == 3) {
-            if (digits == 1 || digits == 2) {
-                ans = x*y*k;
-            } else if (digits == 0){
-                document.getElementById("question").style.width="610px";
-                ans = (x*y*k).toFixed(3);
-            }
-            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
-        }
-    }
-    else if (plus==2) {
-        if (numbers == 2) {
-            if (digits == 1 || digits == 2) {
+        } else if (plus==2) {
+            document.getElementById("question").innerHTML = x + "-" + y;
+            if(digits == 1 || digits == 2) {
                 ans = x-y;
+                if (ans < 0) {
+                    ans = y-x;
+                    document.getElementById("question").innerHTML = y + "-" + x;
+                }
             } else if (digits == 0){
                 document.getElementById("question").style.width="450px";
                 ans = (x-y).toFixed(3);
             }
-            document.getElementById("question").innerHTML = x + '-' + y;
+//            document.getElementById("question").innerHTML = x + "-" + y;
         }
-        else if (numbers == 3) {
-            if (digits == 1 || digits == 2) {
-                ans = x*y*k;
-            } else if (digits == 0){
-                document.getElementById("question").style.width="610px";
-                ans = (x*y*k).toFixed(3);
-            }
-            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
-        }
+    } else if (numbers == 3) {
+
     }
 }
 
@@ -458,7 +444,7 @@ function generateQA() {
                         wrongans = Math.floor((Math.random() * max) + min);
 
                     }
-                } 
+                }
                  if (numbers == 2 && digits == 0) {
                     var wrongans = (Math.random()*90+1).toFixed(3);;
                     // while (wrongans == ans) {
