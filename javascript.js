@@ -116,6 +116,12 @@ document.getElementById("normal").onclick = function() {
     hide("back1");
     show("back2");
     show("second");
+    if (operate==3) {
+        hide("31");
+        hide("32");
+        hide("3decimal");
+        document.getElementById("2decimal").style.left = "140px";
+    }
     mode = 1;
 }
 
@@ -135,6 +141,12 @@ document.getElementById("fast").onclick = function() {
     hide("back1");
     show("back2");
     show("second");
+    if (operate==3) {
+        hide("31");
+        hide("32");
+        hide("3decimal");
+        document.getElementById("2decimal").style.left = "140px";
+    }
     mode = 2;
 }
 
@@ -154,6 +166,12 @@ document.getElementById("one").onclick = function() {
     hide("back1");
     show("back2");
     show("second");
+    if (operate==3) {
+        hide("31");
+        hide("32");
+        hide("3decimal");
+        document.getElementById("2decimal").style.left = "140px";
+    }
     mode = 3;
 }
 
