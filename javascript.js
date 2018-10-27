@@ -470,11 +470,15 @@ function generateQA() {
                 // wrong answers
                 var max = 0;
                 var min = ans-5;
+                // The if-else statement here is to avoid the run down for while-loop under
                 if (ans < 0) {
                     max = min*(-1);   
                 } else {
                     max = ans+5;
                 }
+                
+                // Generate the wrong answer for the 3 buttons
+                // This is for normal number
                 if (digits == 1 || digits == 2) {
                     var wrongans = Math.floor((Math.random() * max) + min);
                     while (answers.indexOf(wrongans) > -1 ) {
@@ -482,28 +486,20 @@ function generateQA() {
 
                     }
                 }
-                 else if (digits == 0) {
-                    var wrongans = ((Math.random() * max) + min).toFixed(3);;
-                    // while (wrongans == ans) {
+                // This is for decimal number
+                else if (digits == 0) {
+                    var wrongans = ((Math.random() * max) + min).toFixed(3);
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = ((Math.random() * max) + min).toFixed(3);
 
                     }
                 }
-//                else if (numbers == 3 && digits == 0) {
-//                    var wrongans = (Math.random()*90+1).toFixed(3);;
-//                    // while (wrongans == ans) {
-//                    while (answers.indexOf(wrongans) > -1 ) {
-//                        wrongans = (Math.random()*900+1).toFixed(3);
-//
-//                    }
-//                }
                 document.getElementById("box"+z).innerHTML = wrongans;
                 answers.push(wrongans);
             }
         }
     } else {
-        gameOver();
+        gameOver(); // When the game reach 50 questions in mode 1 and 3 or out of time in mode 2, then the game is 
     }
 }
 
