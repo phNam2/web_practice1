@@ -13,6 +13,7 @@ var reduce;
 
 // Variables from 3rd stage
 var operate;
+var statement;
 
 document.getElementById("PlusSubtract").onclick = function() {
     operate = 1;
@@ -293,50 +294,86 @@ function gameOver() {
     document.getElementById("result").innerHTML = score;
 }
 
+function add(x, y) {
+    if (digits == 1 || digits == 2) {
+        ans = x+y;
+    } else if (digits == 0){
+        if (numbers==2) {
+            document.getElementById("question").style.width="450px";
+        }
+        else {
+            document.getElementById("question").style.width="610px";
+        }
+        ans = (x-(-y)).toFixed(3);
+    }
+}
+
+function minus(x, y) {
+    if (digits == 1 || digits == 2) {
+        ans = x-y;
+    } else if (digits == 0){
+        if (numbers==2) {
+            document.getElementById("question").style.width="450px";
+        }
+        else {
+            document.getElementById("question").style.width="610px";
+        }
+        ans = (x-y).toFixed(3);
+    }
+}
+
+function multiple(x, y) {
+    if (digits == 1 || digits == 2) {
+        ans = x*y;
+    } else if (digits == 0){
+        document.getElementById("question").style.width="450px";
+        ans = (x*y).toFixed(3);
+    }
+}
+
 // Generate the multiplication operations
 function generatePlusSub(x, y, k) {
     if (numbers == 2) {
         var plus = Math.floor((Math.random() * 2) + 1);
         if(plus==1) {
-            if (digits == 1 || digits == 2) {
-                ans = x+y;
-            } else if (digits == 0){
-                document.getElementById("question").style.width="450px";
-                ans = (x-(-y)).toFixed(3);
-            }
+            add(x, y);
             document.getElementById("question").innerHTML = x + '+' + y;
         } else if (plus==2) {
-            if (digits == 1 || digits == 2) {
-                ans = x-y;
-            } else if (digits == 0){
-                document.getElementById("question").style.width="450px";
-                ans = (x-y).toFixed(3);
-            }
+            minus(x, y);
             document.getElementById("question").innerHTML = x + "-" + y;
         }
     } else if (numbers == 3) {
-
+//        document.getElementById("question").style.width="610px";
+        var plus = Math.floor((Math.random() * 2) + 1);
+        if(plus==1) {
+            add(x, y);
+            statement = x + '+' + y;
+        } else if (plus==2) {
+            minus(x, y);
+            statement = x + "-" + y;
+        }
+        
+        var plus = Math.floor((Math.random() * 2) + 1);
+        if(plus==1) {
+            add(ans, k);
+            document.getElementById("question").innerHTML = statement + '+' + k;
+        } else if (plus==2) {
+            minus(ans, k);
+            document.getElementById("question").innerHTML = statement + "-" + k;
+        }
     }
 }
 
-// Generate the multiplication operations
+// Generate the multiplication add
 function generateMultiple(x, y, k) {
     if (numbers == 2) {
-        if (digits == 1 || digits == 2) {
-            ans = x*y;
-        } else if (digits == 0){
-            document.getElementById("question").style.width="450px";
-            ans = (x*y).toFixed(3);
-        }
+        multiple(x, y);
         document.getElementById("question").innerHTML = x + "x" + y;
     }
     else if (numbers == 3) {
-        if (digits == 1 || digits == 2) {
-            ans = x*y*k;
-        } else if (digits == 0){
-            document.getElementById("question").style.width="610px";
-            ans = (x*y*k).toFixed(3);
-        }
+        multiple(x, y);
+        multiple(ans, k);
+        document.getElementById("question").style.width="610px";
         document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
     }
 }
