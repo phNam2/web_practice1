@@ -295,23 +295,46 @@ function gameOver() {
 
 // Generate the multiplication operations
 function generatePlusSub(x, y, k) {
-    if (numbers == 2) {
-        if (digits == 1 || digits == 2) {
-            ans = x+y;
-        } else if (digits == 0){
-            document.getElementById("question").style.width="450px";
-            ans = (x-(-y)).toFixed(3);
+    var plus = Math.floor((Math.random() * 2) + 1);
+    if(plus==1) {
+        if (numbers == 2) {
+            if (digits == 1 || digits == 2) {
+                ans = x+y;
+            } else if (digits == 0){
+                document.getElementById("question").style.width="450px";
+                ans = (x-(-y)).toFixed(3);
+            }
+            document.getElementById("question").innerHTML = x + '+' + y;
         }
-        document.getElementById("question").innerHTML = x + '+' + y;
+        else if (numbers == 3) {
+            if (digits == 1 || digits == 2) {
+                ans = x*y*k;
+            } else if (digits == 0){
+                document.getElementById("question").style.width="610px";
+                ans = (x*y*k).toFixed(3);
+            }
+            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+        }
     }
-    else if (numbers == 3) {
-        if (digits == 1 || digits == 2) {
-            ans = x*y*k;
-        } else if (digits == 0){
-            document.getElementById("question").style.width="610px";
-            ans = (x*y*k).toFixed(3);
+    else if (plus==2) {
+        if (numbers == 2) {
+            if (digits == 1 || digits == 2) {
+                ans = x-y;
+            } else if (digits == 0){
+                document.getElementById("question").style.width="450px";
+                ans = (x-y).toFixed(3);
+            }
+            document.getElementById("question").innerHTML = x + '-' + y;
         }
-        document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+        else if (numbers == 3) {
+            if (digits == 1 || digits == 2) {
+                ans = x*y*k;
+            } else if (digits == 0){
+                document.getElementById("question").style.width="610px";
+                ans = (x*y*k).toFixed(3);
+            }
+            document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+        }
     }
 }
 
@@ -427,20 +450,20 @@ function generateQA() {
                 document.getElementById("box"+z).innerHTML = ans;
             } else {
                 // wrong answers
-                var min = ans;
-                var max = ans;
+                var min = ans-5;
+                var max = ans+5;
                 if (digits == 1 || digits == 2) {
-                    var wrongans = Math.round(Math.random() * max)+min;
+                    var wrongans = Math.floor((Math.random() * max) + min);
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = Math.round(Math.random() * max)+min;
+                        wrongans = Math.floor((Math.random() * max) + min);
 
                     }
                 } 
-                else if (numbers == 2 && digits == 0) {
+                 if (numbers == 2 && digits == 0) {
                     var wrongans = (Math.random()*90+1).toFixed(3);;
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = (Math.random()*90+1).toFixed(3);;
+                        wrongans = (Math.random()*90+1).toFixed(3);
 
                     }
                 }
@@ -448,7 +471,7 @@ function generateQA() {
                     var wrongans = (Math.random()*90+1).toFixed(3);;
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = (Math.random()*900+1).toFixed(3);;
+                        wrongans = (Math.random()*900+1).toFixed(3);
 
                     }
                 }
