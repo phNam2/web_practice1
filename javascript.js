@@ -331,6 +331,15 @@ function multiple(x, y) {
     }
 }
 
+function divide(x, y) {
+    if (digits == 1 || digits == 2) {
+        ans = (x/y).toFixed(1);
+    } else if (digits == 0){
+        document.getElementById("question").style.width="450px";
+        ans = (x/y).toFixed(3);
+    }
+}
+
 // Generate the multiplication operations
 function generatePlusSub(x, y, k) {
     if (numbers == 2) {
@@ -364,7 +373,7 @@ function generatePlusSub(x, y, k) {
     }
 }
 
-// Generate the multiplication add
+// Generate the multiplication operation
 function generateMultiple(x, y, k) {
     if (numbers == 2) {
         multiple(x, y);
@@ -375,6 +384,20 @@ function generateMultiple(x, y, k) {
         multiple(ans, k);
         document.getElementById("question").style.width="610px";
         document.getElementById("question").innerHTML = x + "x" + y + "x" + k;
+    }
+}
+
+// Generate the Division operation
+function generateDivision(x, y, k) {
+    if (numbers == 2) {
+        divide(x, y);
+        document.getElementById("question").innerHTML = x + "/" + y;
+    }
+    else if (numbers == 3) {
+        divide(x, y);
+        divide(ans, k);
+        document.getElementById("question").style.width="610px";
+        document.getElementById("question").innerHTML = x + "/" + y + "/" + k;
     }
 }
 
@@ -424,7 +447,7 @@ function generateQA() {
             } else if (operate==2) {
                 generateMultiple(x, y, 0);
             } else if (operate==3) {
-
+                generateDivision(x, y, 0);
             } else if (operate==4) {
 
             }
@@ -451,7 +474,7 @@ function generateQA() {
             } else if (operate==2) {
                 generateMultiple(x, y, k);
             } else if (operate==3) {
-
+                generateDivision(x, y, k);
             } else if (operate==4) {
 
             }
@@ -478,8 +501,29 @@ function generateQA() {
                 }
                 
                 // Generate the wrong answer for the 3 buttons
+                if ( (digits == 1 && operate==3) || 
+                     (digits == 2 && operate==3) ) {
+                    var wrongans = ((Math.random() * max) + min).toFixed(1);
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = ((Math.random() * max) + min).toFixed(1);
+
+                    }
+                    if (wrongans < 0) {
+                        wrongans = wrongans*(-1);
+                    }
+                }
+                else if (digits == 0 && operate==3) {
+                    var wrongans = ((Math.random() * max) + min).toFixed(3);
+                    while (answers.indexOf(wrongans) > -1 ) {
+                        wrongans = ((Math.random() * max) + min).toFixed(3);
+
+                    }
+                    if (wrongans < 0) {
+                        wrongans = wrongans*(-1);
+                    }    
+                }
                 // This is for normal number
-                if (digits == 1 || digits == 2) {
+                else if (digits == 1 || digits == 2) {
                     var wrongans = Math.floor((Math.random() * max) + min);
                     while (answers.indexOf(wrongans) > -1 ) {
                         wrongans = Math.floor((Math.random() * max) + min);
@@ -499,7 +543,7 @@ function generateQA() {
             }
         }
     } else {
-        gameOver(); // When the game reach 50 questions in mode 1 and 3 or out of time in mode 2, then the game is 
+        gameOver(); // When the game reach 50 questions in mode 1 and 3 or out of time in mode 2, then the game is over
     }
 }
 
