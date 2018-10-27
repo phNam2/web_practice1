@@ -306,18 +306,13 @@ function generatePlusSub(x, y, k) {
             }
             document.getElementById("question").innerHTML = x + '+' + y;
         } else if (plus==2) {
-            document.getElementById("question").innerHTML = x + "-" + y;
-            if(digits == 1 || digits == 2) {
+            if (digits == 1 || digits == 2) {
                 ans = x-y;
-                if (ans < 0) {
-                    ans = y-x;
-                    document.getElementById("question").innerHTML = y + "-" + x;
-                }
             } else if (digits == 0){
                 document.getElementById("question").style.width="450px";
                 ans = (x-y).toFixed(3);
             }
-//            document.getElementById("question").innerHTML = x + "-" + y;
+            document.getElementById("question").innerHTML = x + "-" + y;
         }
     } else if (numbers == 3) {
 
@@ -436,8 +431,13 @@ function generateQA() {
                 document.getElementById("box"+z).innerHTML = ans;
             } else {
                 // wrong answers
+                var max = 0;
                 var min = ans-5;
-                var max = ans+5;
+                if (ans < 0) {
+                    max = min*(-1);   
+                } else {
+                    max = ans+5;
+                }
                 if (digits == 1 || digits == 2) {
                     var wrongans = Math.floor((Math.random() * max) + min);
                     while (answers.indexOf(wrongans) > -1 ) {
@@ -446,10 +446,10 @@ function generateQA() {
                     }
                 }
                  if (numbers == 2 && digits == 0) {
-                    var wrongans = (Math.random()*90+1).toFixed(3);;
+                    var wrongans = ((Math.random() * max) + min).toFixed(3);;
                     // while (wrongans == ans) {
                     while (answers.indexOf(wrongans) > -1 ) {
-                        wrongans = (Math.random()*90+1).toFixed(3);
+                        wrongans = ((Math.random() * max) + min).toFixed(3);
 
                     }
                 }
