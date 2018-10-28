@@ -91,6 +91,12 @@ document.getElementById("back2").onclick = function() {
     } else if (operate==4) {
         show("title3");
     }
+    if (operate==3) {
+        show("31");
+        show("32");
+        show("3decimal");
+        document.getElementById("2decimal").style.left = "0px";
+    }
     show("normal");
     show("fast");
     show("one");
