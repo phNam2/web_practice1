@@ -580,6 +580,10 @@ function startCountdown() {
             timeRemaining -= 5;
             document.getElementById("left").innerHTML = timeRemaining;
         }
+        // In mode 2 we will play the clock for stage of urgent
+        if (timeRemaining > 0 && mode==2) {
+            document.getElementById("clock").play();
+        }
         // Game over
         if (timeRemaining <= 0) {
 
@@ -611,6 +615,11 @@ function stopCounting() {
 for(i=1; i<5; i++) {
     document.getElementById("box"+i).onclick =
     function() {
+        
+        //Play the button sound only in mode 1 and 
+        if (mode==1 || mode==3) {
+            document.getElementById("buttontr").play();
+        }
             // Yes, then is the answer correct?
         var choice = this.innerHTML;
         if (choice == ans) { // Correct anwer
