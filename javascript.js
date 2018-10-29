@@ -591,6 +591,7 @@ function startCountdown() {
 
             // In mode 2, the game is over when the time run out
             if (mode==2) {
+                document.getElementById("clock").pause();
                 gameOver();
             }
             else{
@@ -616,7 +617,7 @@ for(i=1; i<5; i++) {
     document.getElementById("box"+i).onclick =
     function() {
         
-        //Play the button sound only in mode 1 and 
+        //Play the button sound only in mode 1 and 3
         if (mode==1 || mode==3) {
             document.getElementById("buttontr").play();
         }
